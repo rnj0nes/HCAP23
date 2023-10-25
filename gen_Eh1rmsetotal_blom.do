@@ -1,0 +1,26 @@
+gen Eh1rmsetotal_blom = 6.484367731538817
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + spage1*-.1118236276425281
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + spage2*.4743181100889975
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + spage3*-1.953953030269299
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + female*-3.069533652529506
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + black*-3.569418831365486
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + hisp*-2.503374689739013
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage1*female)*.0477185107625672
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage1*black)*.0304910678156922
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage1*hisp)*.0344075389542656
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage2*female)*-.2786929306509581
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage2*black)*-.1238673459907185
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage2*hisp)*.0334788474825421
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage3*female)*1.265190457249273
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage3*black)*.5733343487901261
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (spage3*hisp)*-.7498852060147041
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (female*black)*.038136697200014
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + (female*hisp)*-.2061264405661834
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + schlyrs*-.2310372588010832
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + schlyrs*spage1*.00480120221468
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + schlyrs*spage2*-.0255813691938
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + schlyrs*spage3*.0996923928591342
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + schlyrs*female*-.0017310255771738
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + schlyrs*black*.0616095992137192
+replace Eh1rmsetotal_blom = Eh1rmsetotal_blom + schlyrs*hisp*-.001303071550131
+

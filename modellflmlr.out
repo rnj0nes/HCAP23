@@ -1,0 +1,442 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  10:43 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+    vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+      0: 0-1
+      1: 2
+    vdlfl3 : Naming 2 items MMSE
+      0: 0-1
+      1: 2
+    vdlfl4 : MMSE write a sentence
+    vdlfl5 : MMSE read and follow command
+    vdlfl6 : CSID object naming
+      0: 0-2
+      1: 3
+      2: 4
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdlfl1z vdlfl2 vdlfl3 vdlfl4 vdlfl5 vdlfl6 ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdlfl2
+      vdlfl3
+      vdlfl4
+      vdlfl5
+      vdlfl6
+      ;
+  ANALYSIS:
+  estimator=mlr ;
+  link=probit ;
+  integration = montecarlo ;
+  algorithm=integration ;
+
+  OUTPUT:
+  stdyx ;
+  svalues ;
+
+  MODEL:
+  [vdlfl1z*0.37139] ;
+  [vdlfl2$1*-2.10651] ;
+  [vdlfl3$1*-3.55361] ;
+  [vdlfl4$1*-1.86194] ;
+  [vdlfl5$1*-2.08651] ;
+  [vdlfl6$1*-2.19872] ;
+  [vdlfl6$2*-0.84439] ;
+  lfl by vdlfl1z@1 ;
+  lfl by vdlfl2*11.41201 ;
+  lfl by vdlfl3*11.80585 ;
+  lfl by vdlfl4*7.03877 ;
+  lfl by vdlfl5*6.12734 ;
+  lfl by vdlfl6*6.85468 ;
+  vdlfl1z*0.01273 ;
+  lfl*0.01060 ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  149
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+0: 0-1
+1: 2
+vdlfl3 : Naming 2 items MMSE
+0: 0-1
+1: 2
+vdlfl4 : MMSE write a sentence
+vdlfl5 : MMSE read and follow command
+vdlfl6 : CSID object naming
+0: 0-2
+1: 3
+2: 4
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3347
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   VDLFL1Z
+
+  Binary and ordered categorical (ordinal)
+   VDLFL2      VDLFL3      VDLFL4      VDLFL5      VDLFL6
+
+Continuous latent variables
+   LFL
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            10
+  Minimum value for logit thresholds                           -10
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                  MONTECARLO
+  Number of integration points                                1000
+  Dimensions of numerical integration                            1
+  Adaptive quadrature                                           ON
+  Monte Carlo integration seed                                   0
+Link                                                        PROBIT
+Cholesky                                                        ON
+
+Input data file(s)
+  __000001.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            15
+     Number of y missing data patterns           2
+     Number of u missing data patterns          14
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDLFL2        VDLFL3        VDLFL4        VDLFL5        VDLFL6
+              ________      ________      ________      ________      ________
+ VDLFL2         0.996
+ VDLFL3         0.995         0.997
+ VDLFL4         0.964         0.965         0.967
+ VDLFL5         0.990         0.992         0.964         0.993
+ VDLFL6         0.995         0.996         0.965         0.991         0.998
+ VDLFL1Z        0.996         0.997         0.967         0.993         0.998
+
+
+           Covariance Coverage
+              VDLFL1Z
+              ________
+ VDLFL1Z        0.999
+
+
+     PROPORTION OF DATA PRESENT FOR U
+
+
+           Covariance Coverage
+              VDLFL2        VDLFL3        VDLFL4        VDLFL5        VDLFL6
+              ________      ________      ________      ________      ________
+ VDLFL2         0.996
+ VDLFL3         0.995         0.997
+ VDLFL4         0.964         0.965         0.967
+ VDLFL5         0.990         0.992         0.964         0.993
+ VDLFL6         0.995         0.996         0.965         0.991         0.998
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              VDLFL1Z
+              ________
+ VDLFL1Z        0.999
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDLFL2
+      Category 1    0.086          287.000
+      Category 2    0.914         3047.000
+    VDLFL3
+      Category 1    0.012           40.000
+      Category 2    0.988         3298.000
+    VDLFL4
+      Category 1    0.066          213.000
+      Category 2    0.934         3023.000
+    VDLFL5
+      Category 1    0.039          129.000
+      Category 2    0.961         3195.000
+    VDLFL6
+      Category 1    0.036          121.000
+      Category 2    0.209          698.000
+      Category 3    0.755         2522.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDLFL1Z               0.371       0.255       0.000    0.84%       0.233      0.326      0.372
+            3345.000       0.023       0.116       1.000    0.03%       0.395      0.488
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       14
+
+Loglikelihood
+
+          H0 Value                       -2688.244
+          H0 Scaling Correction Factor      1.0800
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    5404.489
+          Bayesian (BIC)                  5490.110
+          Sample-Size Adjusted BIC        5445.626
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                            145.983
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                             35.484
+          Degrees of Freedom                    28
+          P-Value                           0.1562
+
+** Of the 218 cells in the frequency table, 7
+   were deleted in the calculation of chi-square due to extreme values.
+
+Chi-Square Test for MCAR under the Unrestricted Latent Class Indicator Model
+
+          Pearson Chi-Square
+
+          Value                           1070.330
+          Degrees of Freedom                   157
+          P-Value                           0.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            268.874
+          Degrees of Freedom                   157
+          P-Value                           0.0000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ LFL      BY
+    VDLFL1Z            1.000      0.000    999.000    999.000
+    VDLFL2            11.203      1.113     10.067      0.000
+    VDLFL3             9.988      1.788      5.586      0.000
+    VDLFL4             6.752      0.809      8.349      0.000
+    VDLFL5             5.448      0.858      6.349      0.000
+    VDLFL6             6.504      0.608     10.691      0.000
+
+ Intercepts
+    VDLFL1Z            0.371      0.003    140.526      0.000
+
+ Thresholds
+    VDLFL2$1          -2.075      0.111    -18.722      0.000
+    VDLFL3$1          -3.248      0.296    -10.963      0.000
+    VDLFL4$1          -1.807      0.070    -25.650      0.000
+    VDLFL5$1          -2.024      0.079    -25.609      0.000
+    VDLFL6$1          -2.176      0.064    -33.814      0.000
+    VDLFL6$2          -0.826      0.034    -24.261      0.000
+
+ Variances
+    LFL                0.011      0.001     11.818      0.000
+
+ Residual Variances
+    VDLFL1Z            0.012      0.001     14.542      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.200E-04
+       (ratio of smallest to largest eigenvalue)
+
+
+RESULTS IN PROBABILITY SCALE
+
+                    Estimate
+
+ VDLFL2
+    Category 1         0.088
+    Category 2         0.912
+ VDLFL3
+    Category 1         0.012
+    Category 2         0.988
+ VDLFL4
+    Category 1         0.070
+    Category 2         0.930
+ VDLFL5
+    Category 1         0.039
+    Category 2         0.961
+ VDLFL6
+    Category 1         0.036
+    Category 2         0.211
+    Category 3         0.753
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ LFL      BY
+    VDLFL1Z            0.682      0.026     25.833      0.000
+    VDLFL2             0.759      0.029     26.291      0.000
+    VDLFL3             0.720      0.061     11.810      0.000
+    VDLFL4             0.575      0.042     13.776      0.000
+    VDLFL5             0.493      0.053      9.298      0.000
+    VDLFL6             0.560      0.029     19.277      0.000
+
+ Intercepts
+    VDLFL1Z            2.437      0.033     74.869      0.000
+
+ Thresholds
+    VDLFL2$1          -1.352      0.031    -43.372      0.000
+    VDLFL3$1          -2.253      0.060    -37.394      0.000
+    VDLFL4$1          -1.479      0.034    -43.087      0.000
+    VDLFL5$1          -1.761      0.040    -44.069      0.000
+    VDLFL6$1          -1.803      0.041    -43.723      0.000
+    VDLFL6$2          -0.685      0.024    -28.851      0.000
+
+ Variances
+    LFL                1.000      0.000    999.000    999.000
+
+ Residual Variances
+    VDLFL1Z            0.535      0.036     14.832      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    VDLFL2             0.576      0.044     13.146      0.000
+    VDLFL3             0.519      0.088      5.905      0.000
+    VDLFL4             0.330      0.048      6.888      0.000
+    VDLFL5             0.243      0.052      4.649      0.000
+    VDLFL6             0.314      0.033      9.638      0.000
+    VDLFL1Z            0.465      0.036     12.917      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     lfl BY vdlfl1z@1;
+     lfl BY vdlfl2*11.20339;
+     lfl BY vdlfl3*9.98794;
+     lfl BY vdlfl4*6.75197;
+     lfl BY vdlfl5*5.44765;
+     lfl BY vdlfl6*6.50385;
+
+     [ vdlfl1z*0.37141 ];
+
+     [ vdlfl2$1*-2.07503 ];
+     [ vdlfl3$1*-3.24793 ];
+     [ vdlfl4$1*-1.80727 ];
+     [ vdlfl5$1*-2.02416 ];
+     [ vdlfl6$1*-2.17617 ];
+     [ vdlfl6$2*-0.82639 ];
+
+     vdlfl1z*0.01242;
+     lfl*0.01081;
+
+
+
+     Beginning Time:  10:43:56
+        Ending Time:  10:44:41
+       Elapsed Time:  00:00:45
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

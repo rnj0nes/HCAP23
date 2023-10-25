@@ -1,0 +1,379 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  10:41 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+    vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+    vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+    vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+    vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+    vdasp3 : MMSE spell world backwards
+    vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+    vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdexf1z vdexf2z vdexf7z vdasp1z vdasp2z vdasp3 vdasp4z vdasp5z ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdasp3
+      ;
+  ANALYSIS:
+  estimator=wlsmv ;
+  parameterization=theta ;
+
+  OUTPUT:
+  stdyx ;
+  svalues ;
+
+  MODEL:
+  exf by vdexf1z vdexf2z vdexf7z  ;
+  exf by vdasp1z vdasp2z vdasp3 vdasp4z vdasp5z  ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  153
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+vdasp3 : MMSE spell world backwards
+vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3343
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   VDEXF1Z     VDEXF2Z     VDEXF7Z     VDASP1Z     VDASP2Z     VDASP4Z
+   VDASP5Z
+
+  Binary and ordered categorical (ordinal)
+   VDASP3
+
+Continuous latent variables
+   EXF
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  __000001.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            74
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDEXF1Z       VDEXF2Z       VDEXF7Z       VDASP1Z       VDASP2Z
+              ________      ________      ________      ________      ________
+ VDEXF1Z        0.983
+ VDEXF2Z        0.844         0.845
+ VDEXF7Z        0.826         0.754         0.828
+ VDASP1Z        0.945         0.837         0.818         0.948
+ VDASP2Z        0.957         0.843         0.821         0.937         0.960
+ VDASP3         0.936         0.821         0.814         0.912         0.919
+ VDASP4Z        0.973         0.843         0.827         0.943         0.953
+ VDASP5Z        0.950         0.834         0.815         0.935         0.939
+
+
+           Covariance Coverage
+              VDASP3        VDASP4Z       VDASP5Z
+              ________      ________      ________
+ VDASP3         0.950
+ VDASP4Z        0.944         0.987
+ VDASP5Z        0.917         0.950         0.956
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDASP3
+      Category 1    0.016           52.000
+      Category 2    0.027           87.000
+      Category 3    0.050          159.000
+      Category 4    0.106          338.000
+      Category 5    0.047          150.000
+      Category 6    0.753         2390.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDEXF1Z               0.729      -0.982       0.000    0.76%       0.529      0.706      0.765
+            3287.000       0.047       0.633       1.000    9.16%       0.823      0.941
+     VDEXF2Z               0.428      -0.142       0.000    1.03%       0.251      0.384      0.432
+            2826.000       0.040      -0.643       1.000    0.04%       0.495      0.608
+     VDEXF7Z               0.648      -0.787       0.000    0.72%       0.526      0.623      0.663
+            2769.000       0.032       1.661       1.000    3.61%       0.686      0.783
+     VDASP1Z               0.458      -0.216       0.000    0.44%       0.296      0.423      0.465
+            3168.000       0.031      -0.445       1.000    0.03%       0.507      0.620
+     VDASP2Z               0.397      -0.706       0.000    0.16%       0.319      0.389      0.412
+            3210.000       0.011       1.040       1.000    0.03%       0.432      0.479
+     VDASP4Z               0.366      -0.199       0.000    1.88%       0.263      0.350      0.375
+            3300.000       0.020       0.519       1.000    0.03%       0.400      0.475
+     VDASP5Z               0.399      -0.141       0.000    0.84%       0.297      0.378      0.405
+            3197.000       0.020       0.381       1.000    0.03%       0.432      0.514
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       27
+
+Chi-Square Test of Model Fit
+
+          Value                            779.159*
+          Degrees of Freedom                    20
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.107
+          90 Percent C.I.                    0.100  0.113
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.915
+          TLI                                0.880
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           8909.853
+          Degrees of Freedom                    28
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.039
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.31746995D-01
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ EXF      BY
+    VDEXF1Z            1.000      0.000    999.000    999.000
+    VDEXF2Z            0.924      0.029     31.773      0.000
+    VDEXF7Z            0.707      0.019     37.018      0.000
+    VDASP1Z            0.975      0.024     40.258      0.000
+    VDASP2Z            0.530      0.013     40.667      0.000
+    VDASP3             4.534      0.196     23.105      0.000
+    VDASP4Z            0.629      0.016     39.027      0.000
+    VDASP5Z            0.611      0.017     35.935      0.000
+
+ Intercepts
+    VDEXF1Z            0.729      0.005    153.305      0.000
+    VDEXF2Z            0.428      0.004    112.861      0.000
+    VDEXF7Z            0.648      0.004    173.358      0.000
+    VDASP1Z            0.458      0.003    143.890      0.000
+    VDASP2Z            0.397      0.002    194.306      0.000
+    VDASP4Z            0.366      0.002    146.610      0.000
+    VDASP5Z            0.399      0.003    157.933      0.000
+
+ Thresholds
+    VDASP3$1          -2.646      0.070    -37.811      0.000
+    VDASP3$2          -2.117      0.050    -42.017      0.000
+    VDASP3$3          -1.633      0.040    -40.610      0.000
+    VDASP3$4          -1.042      0.033    -31.361      0.000
+    VDASP3$5          -0.846      0.032    -26.653      0.000
+
+ Variances
+    EXF                0.026      0.001     23.048      0.000
+
+ Residual Variances
+    VDEXF1Z            0.021      0.001     37.792      0.000
+    VDEXF2Z            0.018      0.001     34.402      0.000
+    VDEXF7Z            0.019      0.000     42.114      0.000
+    VDASP1Z            0.006      0.000     25.868      0.000
+    VDASP2Z            0.004      0.000     35.637      0.000
+    VDASP4Z            0.010      0.000     39.240      0.000
+    VDASP5Z            0.011      0.000     40.015      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.476E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ EXF      BY
+    VDEXF1Z            0.743      0.008     88.984      0.000
+    VDEXF2Z            0.745      0.009     79.771      0.000
+    VDEXF7Z            0.636      0.010     64.588      0.000
+    VDASP1Z            0.892      0.006    162.074      0.000
+    VDASP2Z            0.809      0.007    119.274      0.000
+    VDASP3             0.590      0.016     36.736      0.000
+    VDASP4Z            0.712      0.009     81.074      0.000
+    VDASP5Z            0.692      0.009     74.336      0.000
+
+ Intercepts
+    VDEXF1Z            3.359      0.037     91.958      0.000
+    VDEXF2Z            2.139      0.038     56.983      0.000
+    VDEXF7Z            3.614      0.036     99.850      0.000
+    VDASP1Z            2.596      0.039     67.006      0.000
+    VDASP2Z            3.751      0.038     98.575      0.000
+    VDASP4Z            2.573      0.031     81.704      0.000
+    VDASP5Z            2.805      0.035     79.239      0.000
+
+ Thresholds
+    VDASP3$1          -2.135      0.055    -38.710      0.000
+    VDASP3$2          -1.709      0.039    -43.625      0.000
+    VDASP3$3          -1.318      0.031    -42.647      0.000
+    VDASP3$4          -0.841      0.025    -33.171      0.000
+    VDASP3$5          -0.682      0.024    -28.168      0.000
+
+ Variances
+    EXF                1.000      0.000    999.000    999.000
+
+ Residual Variances
+    VDEXF1Z            0.447      0.012     36.005      0.000
+    VDEXF2Z            0.445      0.014     32.016      0.000
+    VDEXF7Z            0.595      0.013     47.418      0.000
+    VDASP1Z            0.204      0.010     20.734      0.000
+    VDASP2Z            0.346      0.011     31.539      0.000
+    VDASP4Z            0.493      0.013     39.378      0.000
+    VDASP5Z            0.521      0.013     40.447      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    VDEXF1Z            0.553      0.012     44.492      0.000
+    VDEXF2Z            0.555      0.014     39.886      0.000
+    VDEXF7Z            0.405      0.013     32.294      0.000
+    VDASP1Z            0.796      0.010     81.037      0.000
+    VDASP2Z            0.654      0.011     59.637      0.000
+    VDASP3             0.349      0.019     18.368      0.000      0.807
+    VDASP4Z            0.507      0.013     40.537      0.000
+    VDASP5Z            0.479      0.013     37.168      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     exf BY vdexf1z@1;
+     exf BY vdexf2z*0.92434;
+     exf BY vdexf7z*0.70749;
+     exf BY vdasp1z*0.97507;
+     exf BY vdasp2z*0.53009;
+     exf BY vdasp3*4.53446;
+     exf BY vdasp4z*0.62865;
+     exf BY vdasp5z*0.61061;
+
+     [ vdexf1z*0.72910 ];
+     [ vdexf2z*0.42836 ];
+     [ vdexf7z*0.64824 ];
+     [ vdasp1z*0.45766 ];
+     [ vdasp2z*0.39672 ];
+     [ vdasp4z*0.36639 ];
+     [ vdasp5z*0.39934 ];
+
+     [ vdasp3$1*-2.64568 ];
+     [ vdasp3$2*-2.11706 ];
+     [ vdasp3$3*-1.63255 ];
+     [ vdasp3$4*-1.04173 ];
+     [ vdasp3$5*-0.84560 ];
+
+     vdexf1z*0.02107;
+     vdexf2z*0.01786;
+     vdexf7z*0.01914;
+     vdasp1z*0.00633;
+     vdasp2z*0.00387;
+     vdasp4z*0.01000;
+     vdasp5z*0.01056;
+     exf*0.02604;
+
+
+
+     Beginning Time:  10:41:30
+        Ending Time:  10:41:30
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

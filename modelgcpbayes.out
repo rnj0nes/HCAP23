@@ -1,0 +1,599 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  11:14 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+    vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+    vdmde3 : MMSE 3 word delayed recall (0-3)
+      0: 0-1
+      1: 2
+      2: 3
+    vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+    vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+    vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+    vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+    vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+    vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+    vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+    vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+    vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+    vdasp3 : MMSE spell world backwards
+    vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+    vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+    vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+    vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+      0: 0-1
+      1: 2
+    vdlfl3 : Naming 2 items MMSE
+      0: 0-1
+      1: 2
+    vdlfl4 : MMSE write a sentence
+    vdlfl5 : MMSE read and follow command
+    vdlfl6 : CSID object naming
+      0: 0-2
+      1: 3
+      2: 4
+    vdori1z : vdori1z = (vdori1 - .0008432221464)/ 10.00168644
+    vdvis1z : vdvis1z = (vdvis1 - .001456089426)/ 11.00291218
+    rnjid :
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdmde1z vdmde2z vdmde3 vdmde4z vdmde5z vdmre1z vdmre2z vdexf1z
+  vdexf2z vdexf7z vdasp1z vdasp2z vdasp3 vdasp4z vdasp5z vdlfl1z
+  vdlfl2 vdlfl3 vdlfl4 vdlfl5 vdlfl6 vdori1z vdvis1z rnjid ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdmde3
+      vdasp3
+      vdlfl2
+      vdlfl3
+      vdlfl4
+      vdlfl5
+      vdlfl6
+      ;
+    IDVARIABLE = rnjid ;
+  ANALYSIS:
+  estimator=bayes ;
+
+  OUTPUT:
+  MODEL:
+  [vdmde1z*0.51134] ;
+  [vdmde2z*0.29012] ;
+  [vdmde4z*0.52790] ;
+  [vdmde5z*0.41530] ;
+  [vdmre1z*0.92627] ;
+  [vdmre2z*0.68603] ;
+  [vdexf1z*0.72910] ;
+  [vdexf2z*0.42836] ;
+  [vdexf7z*0.64824] ;
+  [vdasp1z*0.45766] ;
+  [vdasp2z*0.39672] ;
+  [vdasp4z*0.36639] ;
+  [vdasp5z*0.39934] ;
+  [vdlfl1z*0.37139] ;
+  [vdori1z*0.93217] ;
+  [vdvis1z*0.74345] ;
+  [vdmde3$1*-1.83582] ;
+  [vdmde3$2*-0.62756] ;
+  [vdasp3$1*-2.71491] ;
+  [vdasp3$2*-2.17246] ;
+  [vdasp3$3*-1.67527] ;
+  [vdasp3$4*-1.06899] ;
+  [vdasp3$5*-0.86773] ;
+  [vdlfl2$1*-2.01737] ;
+  [vdlfl3$1*-2.94944] ;
+  [vdlfl4$1*-1.81233] ;
+  [vdlfl5$1*-2.02490] ;
+  [vdlfl6$1*-2.10634] ;
+  [vdlfl6$2*-0.80891] ;
+  mem by vdmde1z@1 ;
+  mem by vdmde2z*0.76244 ;
+  mem by vdmde3*4.65335 ;
+  mem by vdmde4z*1.08221 ;
+  mem by vdmde5z*0.82491 ;
+  mem by vdmre1z*0.37629 ;
+  mem by vdmre2z*0.52821 ;
+  exf by vdexf1z@1 ;
+  exf by vdexf2z*0.83909 ;
+  exf by vdexf7z*0.66585 ;
+  exf by vdasp1z*0.92569 ;
+  exf by vdasp2z*0.49575 ;
+  exf by vdasp3*4.66637 ;
+  exf by vdasp4z*0.61233 ;
+  exf by vdasp5z*0.59081 ;
+  lfl by vdlfl1z@1 ;
+  lfl by vdlfl2*9.19792 ;
+  lfl by vdlfl3*7.10804 ;
+  lfl by vdlfl4*5.64052 ;
+  lfl by vdlfl5*4.75802 ;
+  lfl by vdlfl6*5.17684 ;
+  gcp by mem@1 ;
+  gcp by exf*0.80542 ;
+  gcp by lfl*0.60609 ;
+  gcp by vdori1z*0.47335 ;
+  gcp by vdvis1z*0.69626 ;
+  ceradwl by vdmde1z@1 ;
+  ceradwl by vdmre1z@1 ;
+  lm by vdmde2z@1 ;
+  lm by vdmre2z@1 ;
+  mem with ceradwl@0 ;
+  mem with lm@0 ;
+  ceradwl with lm@0 ;
+  ceradwl with gcp@0 ;
+  ceradwl with exf@0 ;
+  ceradwl with lfl@0 ;
+  ceradwl with vdori1z@0 ;
+  ceradwl with vdvis1z@0 ;
+  lm with gcp@0 ;
+  lm with exf@0 ;
+  lm with lfl@0 ;
+  lm with vdori1z@0 ;
+  lm with vdvis1z@0 ;
+  vdmde1z*0.02434 ;
+  vdmde2z*0.01641 ;
+  vdmde4z*0.03732 ;
+  vdmde5z*0.04887 ;
+  vdmre1z*0.00429 ;
+  vdmre2z*0.01482 ;
+  vdexf1z*0.01878 ;
+  vdexf2z*0.02016 ;
+  vdexf7z*0.01961 ;
+  vdasp1z*0.00682 ;
+  vdasp2z*0.00422 ;
+  vdasp4z*0.00966 ;
+  vdasp5z*0.01038 ;
+  vdlfl1z*0.00934 ;
+  vdori1z*0.01085 ;
+  vdvis1z*0.02893 ;
+  mem*0.00962 ;
+  ceradwl*0.00358 ;
+  lm*0.00619 ;
+  exf*0.00706 ;
+  lfl*0.00195 ;
+  gcp*0.03277 ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  149
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+vdmde3 : MMSE 3 word delayed recall (0-3)
+0: 0-1
+1: 2
+2: 3
+vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+vdasp3 : MMSE spell world backwards
+vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+0: 0-1
+1: 2
+vdlfl3 : Naming 2 items MMSE
+0: 0-1
+1: 2
+vdlfl4 : MMSE write a sentence
+vdlfl5 : MMSE read and follow command
+vdlfl6 : CSID object naming
+0: 0-2
+1: 3
+2: 4
+vdori1z : vdori1z = (vdori1 - .0008432221464)/ 10.00168644
+vdvis1z : vdvis1z = (vdvis1 - .001456089426)/ 11.00291218
+rnjid :
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3347
+
+Number of dependent variables                                   23
+Number of independent variables                                  0
+Number of continuous latent variables                            6
+
+Observed dependent variables
+
+  Continuous
+   VDMDE1Z     VDMDE2Z     VDMDE4Z     VDMDE5Z     VDMRE1Z     VDMRE2Z
+   VDEXF1Z     VDEXF2Z     VDEXF7Z     VDASP1Z     VDASP2Z     VDASP4Z
+   VDASP5Z     VDLFL1Z     VDORI1Z     VDVIS1Z
+
+  Binary and ordered categorical (ordinal)
+   VDMDE3      VDASP3      VDLFL2      VDLFL3      VDLFL4      VDLFL5
+   VDLFL6
+
+Continuous latent variables
+   MEM         EXF         LFL         GCP         CERADWL     LM
+
+Variables with special functions
+
+  ID variable           RNJID
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+Link                                                        PROBIT
+
+Input data file(s)
+  __000001.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+     Number of missing data patterns           199
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDMDE3        VDASP3        VDLFL2        VDLFL3        VDLFL4
+              ________      ________      ________      ________      ________
+ VDMDE3         0.982
+ VDASP3         0.936         0.949
+ VDLFL2         0.980         0.948         0.996
+ VDLFL3         0.981         0.948         0.995         0.997
+ VDLFL4         0.952         0.935         0.964         0.965         0.967
+ VDLFL5         0.976         0.947         0.990         0.992         0.964
+ VDLFL6         0.981         0.947         0.995         0.996         0.965
+ VDMDE1Z        0.979         0.946         0.992         0.993         0.964
+ VDMDE2Z        0.976         0.942         0.988         0.989         0.959
+ VDMDE4Z        0.972         0.940         0.985         0.986         0.962
+ VDMDE5Z        0.979         0.945         0.992         0.993         0.963
+ VDMRE1Z        0.976         0.944         0.990         0.990         0.962
+ VDMRE2Z        0.956         0.925         0.966         0.967         0.941
+ VDEXF1Z        0.967         0.935         0.980         0.981         0.955
+ VDEXF2Z        0.838         0.820         0.844         0.844         0.832
+ VDEXF7Z        0.821         0.813         0.827         0.827         0.823
+ VDASP1Z        0.935         0.911         0.946         0.947         0.930
+ VDASP2Z        0.947         0.918         0.958         0.958         0.939
+ VDASP4Z        0.971         0.943         0.985         0.985         0.958
+ VDASP5Z        0.942         0.916         0.954         0.954         0.936
+ VDLFL1Z        0.982         0.949         0.996         0.997         0.967
+ VDORI1Z        0.982         0.949         0.996         0.996         0.966
+ VDVIS1Z        0.973         0.940         0.986         0.987         0.962
+
+
+           Covariance Coverage
+              VDLFL5        VDLFL6        VDMDE1Z       VDMDE2Z       VDMDE4Z
+              ________      ________      ________      ________      ________
+ VDLFL5         0.993
+ VDLFL6         0.991         0.998
+ VDMDE1Z        0.989         0.995         0.995
+ VDMDE2Z        0.984         0.991         0.988         0.991
+ VDMDE4Z        0.983         0.987         0.984         0.982         0.987
+ VDMDE5Z        0.989         0.996         0.993         0.991         0.987
+ VDMRE1Z        0.987         0.993         0.992         0.987         0.984
+ VDMRE2Z        0.962         0.968         0.967         0.968         0.961
+ VDEXF1Z        0.977         0.982         0.979         0.978         0.977
+ VDEXF2Z        0.843         0.844         0.843         0.843         0.844
+ VDEXF7Z        0.826         0.827         0.826         0.826         0.827
+ VDASP1Z        0.944         0.947         0.944         0.943         0.946
+ VDASP2Z        0.956         0.959         0.957         0.956         0.958
+ VDASP4Z        0.981         0.986         0.984         0.980         0.978
+ VDASP5Z        0.952         0.955         0.953         0.950         0.952
+ VDLFL1Z        0.993         0.998         0.995         0.991         0.987
+ VDORI1Z        0.992         0.996         0.994         0.990         0.987
+ VDVIS1Z        0.984         0.988         0.985         0.982         0.987
+
+
+           Covariance Coverage
+              VDMDE5Z       VDMRE1Z       VDMRE2Z       VDEXF1Z       VDEXF2Z
+              ________      ________      ________      ________      ________
+ VDMDE5Z        0.996
+ VDMRE1Z        0.991         0.993
+ VDMRE2Z        0.968         0.966         0.968
+ VDEXF1Z        0.982         0.979         0.958         0.982
+ VDEXF2Z        0.844         0.843         0.832         0.843         0.844
+ VDEXF7Z        0.827         0.827         0.817         0.825         0.754
+ VDASP1Z        0.946         0.944         0.928         0.944         0.836
+ VDASP2Z        0.959         0.957         0.937         0.955         0.842
+ VDASP4Z        0.983         0.982         0.959         0.972         0.842
+ VDASP5Z        0.953         0.952         0.932         0.949         0.833
+ VDLFL1Z        0.996         0.993         0.968         0.982         0.844
+ VDORI1Z        0.994         0.991         0.967         0.981         0.844
+ VDVIS1Z        0.987         0.984         0.961         0.977         0.844
+
+
+           Covariance Coverage
+              VDEXF7Z       VDASP1Z       VDASP2Z       VDASP4Z       VDASP5Z
+              ________      ________      ________      ________      ________
+ VDEXF7Z        0.827
+ VDASP1Z        0.817         0.947
+ VDASP2Z        0.820         0.936         0.959
+ VDASP4Z        0.826         0.941         0.952         0.986
+ VDASP5Z        0.814         0.934         0.938         0.949         0.955
+ VDLFL1Z        0.827         0.947         0.959         0.986         0.955
+ VDORI1Z        0.827         0.947         0.958         0.985         0.955
+ VDVIS1Z        0.827         0.946         0.958         0.978         0.952
+
+
+           Covariance Coverage
+              VDLFL1Z       VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ VDLFL1Z        0.999
+ VDORI1Z        0.998         0.998
+ VDVIS1Z        0.988         0.987         0.988
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDMDE3
+      Category 1    0.092          304.000
+      Category 2    0.233          765.000
+      Category 3    0.675         2218.000
+    VDASP3
+      Category 1    0.016           52.000
+      Category 2    0.027           87.000
+      Category 3    0.050          159.000
+      Category 4    0.106          338.000
+      Category 5    0.047          150.000
+      Category 6    0.753         2390.000
+    VDLFL2
+      Category 1    0.086          287.000
+      Category 2    0.914         3047.000
+    VDLFL3
+      Category 1    0.012           40.000
+      Category 2    0.988         3298.000
+    VDLFL4
+      Category 1    0.066          213.000
+      Category 2    0.934         3023.000
+    VDLFL5
+      Category 1    0.039          129.000
+      Category 2    0.961         3195.000
+    VDLFL6
+      Category 1    0.036          121.000
+      Category 2    0.209          698.000
+      Category 3    0.755         2522.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDMDE1Z               0.511      -0.283       0.000    8.29%       0.300      0.500      0.500
+            3331.000       0.070      -0.654       1.000    3.21%       0.600      0.700
+     VDMDE2Z               0.290       0.244       0.000   18.82%       0.040      0.200      0.280
+            3316.000       0.047      -0.915       1.000    0.03%       0.360      0.480
+     VDMDE4Z               0.528      -0.174       0.000    9.92%       0.273      0.455      0.545
+            3305.000       0.087      -0.842       1.000    9.80%       0.636      0.818
+     VDMDE5Z               0.415      -0.219       0.000   20.95%       0.000      0.417      0.500
+            3332.000       0.078      -1.124       1.000    0.57%       0.500      0.667
+     VDMRE1Z               0.926      -2.537       0.000    0.06%       0.900      0.950      0.950
+            3323.000       0.014       8.514       1.000   49.77%       1.000      1.000
+     VDMRE2Z               0.686      -0.663       0.000    0.37%       0.533      0.667      0.733
+            3239.000       0.033       0.520       1.000    2.78%       0.733      0.867
+     VDEXF1Z               0.729      -0.982       0.000    0.76%       0.529      0.706      0.765
+            3287.000       0.047       0.633       1.000    9.16%       0.823      0.941
+     VDEXF2Z               0.428      -0.142       0.000    1.03%       0.251      0.384      0.432
+            2826.000       0.040      -0.643       1.000    0.04%       0.495      0.608
+     VDEXF7Z               0.648      -0.787       0.000    0.72%       0.526      0.623      0.663
+            2769.000       0.032       1.661       1.000    3.61%       0.686      0.783
+     VDASP1Z               0.458      -0.216       0.000    0.44%       0.296      0.423      0.465
+            3168.000       0.031      -0.445       1.000    0.03%       0.507      0.620
+     VDASP2Z               0.397      -0.706       0.000    0.16%       0.319      0.389      0.412
+            3210.000       0.011       1.040       1.000    0.03%       0.432      0.479
+     VDASP4Z               0.366      -0.199       0.000    1.88%       0.263      0.350      0.375
+            3300.000       0.020       0.519       1.000    0.03%       0.400      0.475
+     VDASP5Z               0.399      -0.141       0.000    0.84%       0.297      0.378      0.405
+            3197.000       0.020       0.381       1.000    0.03%       0.432      0.514
+     VDLFL1Z               0.371       0.255       0.000    0.84%       0.233      0.326      0.372
+            3345.000       0.023       0.116       1.000    0.03%       0.395      0.488
+     VDORI1Z               0.932      -3.238       0.000    0.06%       0.900      1.000      1.000
+            3340.000       0.018      12.660       1.000   64.55%       1.000      1.000
+     VDVIS1Z               0.743      -0.585       0.000    0.33%       0.545      0.636      0.727
+            3308.000       0.045      -0.162       1.000   21.61%       0.818      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                              73
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                               2124.643          2297.075
+
+          Posterior Predictive P-Value              0.000
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ MEM      BY
+    VDMDE1Z            1.000       0.000      0.000       1.000       1.000
+    VDMDE2Z            0.758       0.017      0.000       0.726       0.794      *
+    VDMDE3             4.436       0.160      0.000       4.135       4.764      *
+    VDMDE4Z            1.010       0.024      0.000       0.962       1.057      *
+    VDMDE5Z            0.847       0.023      0.000       0.802       0.890      *
+    VDMRE1Z            0.369       0.009      0.000       0.353       0.387      *
+    VDMRE2Z            0.528       0.016      0.000       0.498       0.559      *
+
+ EXF      BY
+    VDEXF1Z            1.000       0.000      0.000       1.000       1.000
+    VDEXF2Z            1.123       0.026      0.000       1.073       1.178      *
+    VDEXF7Z            0.858       0.025      0.000       0.809       0.909      *
+    VDASP1Z            1.060       0.019      0.000       1.025       1.102      *
+    VDASP2Z            0.558       0.011      0.000       0.536       0.581      *
+    VDASP3             4.561       0.183      0.000       4.202       4.923      *
+    VDASP4Z            0.631       0.015      0.000       0.603       0.662      *
+    VDASP5Z            0.657       0.016      0.000       0.627       0.689      *
+
+ LFL      BY
+    VDLFL1Z            1.000       0.000      0.000       1.000       1.000
+    VDLFL2             7.684       0.442      0.000       6.840       8.570      *
+    VDLFL3             5.696       0.666      0.000       4.313       6.956      *
+    VDLFL4             5.162       0.383      0.000       4.422       5.902      *
+    VDLFL5             4.332       0.393      0.000       3.605       5.137      *
+    VDLFL6             5.038       0.267      0.000       4.516       5.579      *
+
+ GCP      BY
+    VDORI1Z            0.445       0.014      0.000       0.419       0.473      *
+    VDVIS1Z            0.693       0.021      0.000       0.653       0.738      *
+
+ CERADWL  BY
+    VDMDE1Z            1.000       0.000      0.000       1.000       1.000
+    VDMRE1Z            1.000       0.000      0.000       1.000       1.000
+
+ LM       BY
+    VDMDE2Z            1.000       0.000      0.000       1.000       1.000
+    VDMRE2Z            1.000       0.000      0.000       1.000       1.000
+
+ GCP      BY
+    MEM                1.000       0.000      0.000       1.000       1.000
+    EXF                0.805       0.022      0.000       0.767       0.851      *
+    LFL                0.583       0.015      0.000       0.553       0.608      *
+
+ MEM      WITH
+    CERADWL            0.000       0.000      1.000       0.000       0.000
+    LM                 0.000       0.000      1.000       0.000       0.000
+
+ CERADWL  WITH
+    LM                 0.000       0.000      1.000       0.000       0.000
+    GCP                0.000       0.000      1.000       0.000       0.000
+    EXF                0.000       0.000      1.000       0.000       0.000
+    LFL                0.000       0.000      1.000       0.000       0.000
+    VDORI1Z            0.000       0.000      1.000       0.000       0.000
+    VDVIS1Z            0.000       0.000      1.000       0.000       0.000
+
+ LM       WITH
+    GCP                0.000       0.000      1.000       0.000       0.000
+    EXF                0.000       0.000      1.000       0.000       0.000
+    LFL                0.000       0.000      1.000       0.000       0.000
+    VDORI1Z            0.000       0.000      1.000       0.000       0.000
+    VDVIS1Z            0.000       0.000      1.000       0.000       0.000
+
+ Intercepts
+    VDMDE1Z            0.509       0.005      0.000       0.500       0.518      *
+    VDMDE2Z            0.288       0.004      0.000       0.281       0.295      *
+    VDMDE4Z            0.525       0.005      0.000       0.515       0.535      *
+    VDMDE5Z            0.414       0.005      0.000       0.404       0.423      *
+    VDMRE1Z            0.925       0.002      0.000       0.921       0.929      *
+    VDMRE2Z            0.680       0.003      0.000       0.674       0.686      *
+    VDEXF1Z            0.724       0.004      0.000       0.717       0.732      *
+    VDEXF2Z            0.386       0.004      0.000       0.378       0.394      *
+    VDEXF7Z            0.614       0.004      0.000       0.606       0.621      *
+    VDASP1Z            0.441       0.003      0.000       0.435       0.447      *
+    VDASP2Z            0.391       0.002      0.000       0.387       0.394      *
+    VDASP4Z            0.363       0.002      0.000       0.359       0.368      *
+    VDASP5Z            0.392       0.003      0.000       0.387       0.397      *
+    VDLFL1Z            0.371       0.003      0.000       0.366       0.376      *
+    VDORI1Z            0.932       0.002      0.000       0.927       0.936      *
+    VDVIS1Z            0.741       0.004      0.000       0.734       0.748      *
+
+ Thresholds
+    VDMDE3$1          -1.790       0.047      0.000      -1.883      -1.701      *
+    VDMDE3$2          -0.541       0.031      0.000      -0.605      -0.478      *
+    VDASP3$1          -2.657       0.071      0.000      -2.801      -2.540      *
+    VDASP3$2          -2.090       0.048      0.000      -2.192      -2.001      *
+    VDASP3$3          -1.569       0.039      0.000      -1.642      -1.496      *
+    VDASP3$4          -0.964       0.034      0.000      -1.025      -0.894      *
+    VDASP3$5          -0.767       0.032      0.000      -0.827      -0.701      *
+    VDLFL2$1          -1.800       0.058      0.000      -1.920      -1.687      *
+    VDLFL3$1          -2.761       0.130      0.000      -2.964      -2.474      *
+    VDLFL4$1          -1.713       0.045      0.000      -1.804      -1.626      *
+    VDLFL5$1          -1.971       0.058      0.000      -2.092      -1.868      *
+    VDLFL6$1          -2.087       0.051      0.000      -2.198      -1.999      *
+    VDLFL6$2          -0.776       0.029      0.000      -0.833      -0.722      *
+
+ Variances
+    GCP                0.035       0.002      0.000       0.032       0.038      *
+    CERADWL            0.003       0.000      0.000       0.003       0.004      *
+    LM                 0.006       0.000      0.000       0.005       0.007      *
+
+ Residual Variances
+    VDMDE1Z            0.023       0.001      0.000       0.022       0.024      *
+    VDMDE2Z            0.016       0.001      0.000       0.015       0.017      *
+    VDMDE4Z            0.042       0.001      0.000       0.040       0.045      *
+    VDMDE5Z            0.046       0.001      0.000       0.044       0.048      *
+    VDMRE1Z            0.005       0.000      0.000       0.004       0.005      *
+    VDMRE2Z            0.015       0.001      0.000       0.014       0.016      *
+    VDEXF1Z            0.021       0.001      0.000       0.020       0.022      *
+    VDEXF2Z            0.017       0.001      0.000       0.016       0.018      *
+    VDEXF7Z            0.019       0.001      0.000       0.018       0.020      *
+    VDASP1Z            0.006       0.000      0.000       0.006       0.006      *
+    VDASP2Z            0.004       0.000      0.000       0.004       0.004      *
+    VDASP4Z            0.010       0.000      0.000       0.010       0.011      *
+    VDASP5Z            0.010       0.000      0.000       0.009       0.010      *
+    VDLFL1Z            0.011       0.000      0.000       0.010       0.012      *
+    VDORI1Z            0.011       0.000      0.000       0.011       0.012      *
+    VDVIS1Z            0.029       0.001      0.000       0.027       0.030      *
+    MEM                0.010       0.001      0.000       0.009       0.012      *
+    EXF                0.005       0.000      0.000       0.004       0.005      *
+    LFL                0.001       0.000      0.000       0.000       0.001      *
+
+
+     Beginning Time:  11:14:34
+        Ending Time:  11:15:17
+       Elapsed Time:  00:00:43
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

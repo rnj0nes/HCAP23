@@ -1,0 +1,26 @@
+gen Eexf_blom = 1.137903358860278
+replace Eexf_blom = Eexf_blom + spage1*-.0415674233598264
+replace Eexf_blom = Eexf_blom + spage2*.0686739051456809
+replace Eexf_blom = Eexf_blom + spage3*-.3887766779416487
+replace Eexf_blom = Eexf_blom + female*-.9505400095382446
+replace Eexf_blom = Eexf_blom + black*-5.735545362186804
+replace Eexf_blom = Eexf_blom + hisp*.1131322895309923
+replace Eexf_blom = Eexf_blom + (spage1*female)*.0193750168860087
+replace Eexf_blom = Eexf_blom + (spage1*black)*.0601129243706137
+replace Eexf_blom = Eexf_blom + (spage1*hisp)*-.002794417403107
+replace Eexf_blom = Eexf_blom + (spage2*female)*-.0895169807005919
+replace Eexf_blom = Eexf_blom + (spage2*black)*-.2684142327647535
+replace Eexf_blom = Eexf_blom + (spage2*hisp)*-.0053717925262825
+replace Eexf_blom = Eexf_blom + (spage3*female)*.2715190605173761
+replace Eexf_blom = Eexf_blom + (spage3*black)*.9168904185588647
+replace Eexf_blom = Eexf_blom + (spage3*hisp)*-.1039624155224066
+replace Eexf_blom = Eexf_blom + (female*black)*.1047217192441598
+replace Eexf_blom = Eexf_blom + (female*hisp)*-.0778143631835401
+replace Eexf_blom = Eexf_blom + schlyrs*.3357510493061966
+replace Eexf_blom = Eexf_blom + schlyrs*spage1*-.0025154519789585
+replace Eexf_blom = Eexf_blom + schlyrs*spage2*.0016768678267511
+replace Eexf_blom = Eexf_blom + schlyrs*spage3*.0115921494316987
+replace Eexf_blom = Eexf_blom + schlyrs*female*-.0206859648517607
+replace Eexf_blom = Eexf_blom + schlyrs*black*.0395820959403325
+replace Eexf_blom = Eexf_blom + schlyrs*hisp*-.0317801600951663
+

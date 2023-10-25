@@ -1,0 +1,1736 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  11:15 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+    vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+    vdmde3 : MMSE 3 word delayed recall (0-3)
+      0: 0-1
+      1: 2
+      2: 3
+    vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+    vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+    vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+    vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+    vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+    vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+    vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+    vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+    vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+    vdasp3 : MMSE spell world backwards
+    vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+    vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+    vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+    vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+      0: 0-1
+      1: 2
+    vdlfl3 : Naming 2 items MMSE
+      0: 0-1
+      1: 2
+    vdlfl4 : MMSE write a sentence
+    vdlfl5 : MMSE read and follow command
+    vdlfl6 : CSID object naming
+      0: 0-2
+      1: 3
+      2: 4
+    vdori1z : vdori1z = (vdori1 - .0008432221464)/ 10.00168644
+    vdvis1z : vdvis1z = (vdvis1 - .001456089426)/ 11.00291218
+    rnjid :
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdmde1z vdmde2z vdmde3 vdmde4z vdmde5z vdmre1z vdmre2z vdexf1z
+  vdexf2z vdexf7z vdasp1z vdasp2z vdasp3 vdasp4z vdasp5z vdlfl1z
+  vdlfl2 vdlfl3 vdlfl4 vdlfl5 vdlfl6 vdori1z vdvis1z rnjid ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdmde3
+      vdasp3
+      vdlfl2
+      vdlfl3
+      vdlfl4
+      vdlfl5
+      vdlfl6
+      ;
+    IDVARIABLE = rnjid ;
+  ANALYSIS:
+  estimator=bayes ;
+
+  OUTPUT:
+  data imputation: ndatasets=1 ;
+  save = modelgcppv*.dat ;
+
+  SAVEDATA:
+  file=modelgcppv_plaus.dat ;
+  save = fscores(1) ;
+  factors = gcp mem exf lfl  ;
+
+  MODEL:
+  [vdmde1z@0.50931] ;
+  [vdmde2z@0.28774] ;
+  [vdmde4z@0.52432] ;
+  [vdmde5z@0.41371] ;
+  [vdmre1z@0.92529] ;
+  [vdmre2z@0.67999] ;
+  [vdexf1z@0.72446] ;
+  [vdexf2z@0.38623] ;
+  [vdexf7z@0.61359] ;
+  [vdasp1z@0.44089] ;
+  [vdasp2z@0.39053] ;
+  [vdasp4z@0.36335] ;
+  [vdasp5z@0.39204] ;
+  [vdlfl1z@0.37090] ;
+  [vdori1z@0.93140] ;
+  [vdvis1z@0.74105] ;
+  [vdmde3$1@-1.78916] ;
+  [vdmde3$2@-0.54022] ;
+  [vdasp3$1@-2.64725] ;
+  [vdasp3$2@-2.08388] ;
+  [vdasp3$3@-1.56262] ;
+  [vdasp3$4@-0.95883] ;
+  [vdasp3$5@-0.76274] ;
+  [vdlfl2$1@-1.84180] ;
+  [vdlfl3$1@-2.91083] ;
+  [vdlfl4$1@-1.72385] ;
+  [vdlfl5$1@-1.99470] ;
+  [vdlfl6$1@-2.09633] ;
+  [vdlfl6$2@-0.77941] ;
+  mem by vdmde1z@1 ;
+  mem by vdmde2z@0.76200 ;
+  mem by vdmde3@4.46849 ;
+  mem by vdmde4z@1.01402 ;
+  mem by vdmde5z@0.85007 ;
+  mem by vdmre1z@0.36937 ;
+  mem by vdmre2z@0.53030 ;
+  exf by vdexf1z@1 ;
+  exf by vdexf2z@1.14056 ;
+  exf by vdexf7z@0.87502 ;
+  exf by vdasp1z@1.08077 ;
+  exf by vdasp2z@0.56779 ;
+  exf by vdasp3@4.65159 ;
+  exf by vdasp4z@0.64376 ;
+  exf by vdasp5z@0.66997 ;
+  lfl by vdlfl1z@1 ;
+  lfl by vdlfl2@8.24192 ;
+  lfl by vdlfl3@6.85316 ;
+  lfl by vdlfl4@5.45016 ;
+  lfl by vdlfl5@4.68965 ;
+  lfl by vdlfl6@5.22946 ;
+  gcp by mem@1 ;
+  gcp by exf@0.79659 ;
+  gcp by lfl@0.57217 ;
+  gcp by vdori1z@0.44435 ;
+  gcp by vdvis1z@0.69963 ;
+  ceradwl by vdmde1z@1 ;
+  ceradwl by vdmre1z@1 ;
+  lm by vdmde2z@1 ;
+  lm by vdmre2z@1 ;
+  mem with ceradwl@0 ;
+  mem with lm@0 ;
+  ceradwl with lm@0 ;
+  ceradwl with gcp@0 ;
+  ceradwl with exf@0 ;
+  ceradwl with lfl@0 ;
+  ceradwl with vdori1z@0 ;
+  ceradwl with vdvis1z@0 ;
+  lm with gcp@0 ;
+  lm with exf@0 ;
+  lm with lfl@0 ;
+  lm with vdori1z@0 ;
+  lm with vdvis1z@0 ;
+  vdmde1z@0.02299 ;
+  vdmde2z@0.01586 ;
+  vdmde4z@0.04223 ;
+  vdmde5z@0.04589 ;
+  vdmre1z@0.00459 ;
+  vdmre2z@0.01508 ;
+  vdexf1z@0.02125 ;
+  vdexf2z@0.01702 ;
+  vdexf7z@0.01886 ;
+  vdasp1z@0.00597 ;
+  vdasp2z@0.00379 ;
+  vdasp4z@0.01010 ;
+  vdasp5z@0.00979 ;
+  vdlfl1z@0.01100 ;
+  vdori1z@0.01155 ;
+  vdvis1z@0.02854 ;
+  mem@0.01021 ;
+  exf@0.00426 ;
+  lfl@0.00074 ;
+  gcp@0.03409 ;
+  ceradwl@0.00331 ;
+  lm@0.00610 ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  149
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+vdmde3 : MMSE 3 word delayed recall (0-3)
+0: 0-1
+1: 2
+2: 3
+vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+vdasp3 : MMSE spell world backwards
+vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+0: 0-1
+1: 2
+vdlfl3 : Naming 2 items MMSE
+0: 0-1
+1: 2
+vdlfl4 : MMSE write a sentence
+vdlfl5 : MMSE read and follow command
+vdlfl6 : CSID object naming
+0: 0-2
+1: 3
+2: 4
+vdori1z : vdori1z = (vdori1 - .0008432221464)/ 10.00168644
+vdvis1z : vdvis1z = (vdvis1 - .001456089426)/ 11.00291218
+rnjid :
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3347
+
+Number of replications
+    Requested                                                    1
+    Completed                                                    1
+
+Number of dependent variables                                   23
+Number of independent variables                                  0
+Number of continuous latent variables                            6
+
+Observed dependent variables
+
+  Continuous
+   VDMDE1Z     VDMDE2Z     VDMDE4Z     VDMDE5Z     VDMRE1Z     VDMRE2Z
+   VDEXF1Z     VDEXF2Z     VDEXF7Z     VDASP1Z     VDASP2Z     VDASP4Z
+   VDASP5Z     VDLFL1Z     VDORI1Z     VDVIS1Z
+
+  Binary and ordered categorical (ordinal)
+   VDMDE3      VDASP3      VDLFL2      VDLFL3      VDLFL4      VDLFL5
+   VDLFL6
+
+Continuous latent variables
+   MEM         EXF         LFL         GCP         CERADWL     LM
+
+Variables with special functions
+
+  ID variable           RNJID
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+Link                                                        PROBIT
+Specifications for Data Imputation
+  Number of imputed data sets                                    1
+  Iteration intervals for thinning                             100
+
+Input data file(s)
+  __000001.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+     Number of missing data patterns           199
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+ VDMDE3    x  x  x     x  x  x     x  x  x        x  x  x  x  x  x  x
+ VDASP3    x  x  x  x  x  x  x     x     x  x  x  x  x  x     x  x  x
+ VDLFL2    x  x  x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x
+ VDLFL3    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDLFL4    x  x  x  x  x  x  x  x           x  x  x  x  x  x  x  x  x
+ VDLFL5    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDLFL6    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE2Z   x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x     x  x
+ VDMDE4Z   x  x  x  x  x  x  x  x  x        x  x  x  x  x  x  x  x  x
+ VDMDE5Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMRE1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMRE2Z   x  x  x  x  x     x  x  x     x     x  x     x  x     x  x
+ VDEXF1Z   x  x  x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x
+ VDEXF2Z   x              x  x     x        x  x     x           x  x
+ VDEXF7Z   x              x                 x  x  x  x  x           x
+ VDASP1Z   x  x     x  x  x  x  x  x        x  x     x  x  x  x  x  x
+ VDASP2Z   x  x     x  x  x  x     x        x  x  x  x  x        x
+ VDASP4Z   x  x  x  x  x  x  x  x  x        x  x  x  x  x  x  x  x  x
+ VDASP5Z   x     x  x  x  x  x     x        x  x     x  x  x        x
+ VDLFL1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDORI1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDVIS1Z   x  x  x  x  x  x  x  x  x        x  x  x  x  x  x  x  x  x
+
+          21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40
+ VDMDE3    x  x  x  x  x  x  x  x  x     x  x  x  x  x  x  x  x     x
+ VDASP3       x     x  x  x  x  x           x  x  x  x  x  x  x  x  x
+ VDLFL2    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDLFL3    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDLFL4    x  x  x  x  x  x  x  x  x        x  x  x  x  x  x  x  x
+ VDLFL5    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDLFL6    x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE1Z   x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE2Z   x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE4Z   x  x  x  x  x  x  x     x     x  x  x     x  x  x  x  x  x
+ VDMDE5Z   x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x  x
+ VDMRE1Z   x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x  x
+ VDMRE2Z   x  x  x     x  x  x     x  x  x  x        x  x  x  x  x  x
+ VDEXF1Z   x  x  x  x  x  x  x     x  x  x  x  x  x  x     x  x  x  x
+ VDEXF2Z   x           x     x           x  x        x     x
+ VDEXF7Z   x           x     x     x        x  x  x     x  x  x     x
+ VDASP1Z   x     x           x     x     x  x  x  x     x     x     x
+ VDASP2Z   x     x  x  x  x  x     x     x  x  x  x  x  x  x        x
+ VDASP4Z   x  x  x  x  x  x  x     x     x     x  x  x  x  x  x  x  x
+ VDASP5Z   x     x     x  x        x     x     x  x                 x
+ VDLFL1Z   x  x  x  x  x  x  x     x  x  x  x  x  x  x  x  x  x  x  x
+ VDORI1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDVIS1Z   x  x  x  x  x  x  x     x     x  x  x     x  x  x  x  x  x
+
+          41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60
+ VDMDE3    x  x  x        x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDASP3    x  x  x  x  x  x        x           x  x     x  x  x  x  x
+ VDLFL2    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDLFL3    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDLFL4    x  x  x     x  x     x        x  x  x  x        x        x
+ VDLFL5    x  x  x     x  x  x  x  x  x  x  x  x     x  x     x  x  x
+ VDLFL6    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE1Z   x     x  x  x  x  x  x  x  x  x  x  x     x  x  x  x  x
+ VDMDE2Z   x  x  x  x  x  x  x  x  x  x  x     x  x  x  x  x  x  x
+ VDMDE4Z   x  x  x     x  x  x  x  x  x  x     x  x  x  x  x
+ VDMDE5Z   x  x  x  x  x  x  x  x  x  x  x     x  x  x  x  x  x  x
+ VDMRE1Z   x  x  x  x  x     x  x  x  x  x  x  x     x  x  x  x  x
+ VDMRE2Z   x     x     x     x  x  x           x  x  x  x  x  x  x
+ VDEXF1Z   x  x  x     x  x  x  x  x     x     x  x  x  x  x  x  x
+ VDEXF2Z      x           x                          x  x        x
+ VDEXF7Z   x  x                                x     x  x  x
+ VDASP1Z   x  x  x        x  x           x     x  x  x  x  x
+ VDASP2Z      x           x  x  x  x     x     x  x  x  x        x
+ VDASP4Z   x  x  x  x  x  x  x  x  x     x  x     x  x  x  x  x  x
+ VDASP5Z   x  x  x     x  x  x  x  x  x  x     x  x  x  x        x
+ VDLFL1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDORI1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDVIS1Z   x  x  x     x  x  x  x  x  x  x  x  x  x  x  x  x
+
+          61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80
+ VDMDE3    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x     x
+ VDASP3    x  x  x  x  x  x  x     x  x  x  x              x        x
+ VDLFL2    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x     x  x
+ VDLFL3    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x     x  x
+ VDLFL4    x     x  x     x     x  x     x  x     x     x     x  x  x
+ VDLFL5    x  x  x  x  x  x  x  x  x  x  x  x     x  x  x  x  x     x
+ VDLFL6    x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE1Z   x  x  x  x  x  x  x  x  x     x     x  x  x  x  x     x  x
+ VDMDE2Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMDE4Z   x  x  x  x     x     x     x  x  x  x  x  x  x  x  x  x  x
+ VDMDE5Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDMRE1Z   x  x  x  x     x  x  x  x     x     x  x  x  x  x  x  x  x
+ VDMRE2Z      x  x     x  x  x  x  x     x  x  x  x  x  x  x     x  x
+ VDEXF1Z   x  x     x     x  x  x     x     x  x     x  x  x  x  x  x
+ VDEXF2Z   x                    x        x  x                       x
+ VDEXF7Z         x        x                 x           x
+ VDASP1Z   x     x  x           x     x  x  x              x     x  x
+ VDASP2Z   x     x  x           x        x  x  x        x  x  x  x  x
+ VDASP4Z   x  x  x  x     x  x  x  x  x  x  x     x  x  x  x     x  x
+ VDASP5Z   x     x  x        x  x     x  x  x     x  x     x     x  x
+ VDLFL1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDORI1Z   x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x
+ VDVIS1Z   x  x  x  x     x     x     x  x  x  x  x  x  x  x  x  x  x
+
+          81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100
+ VDMDE3       x  x  x  x           x  x  x     x  x     x     x  x   x
+ VDASP3       x     x  x        x  x  x              x  x  x  x
+ VDLFL2       x  x  x     x     x  x  x     x  x  x  x  x  x  x  x   x
+ VDLFL3    x  x  x  x  x  x  x  x  x  x     x  x  x  x  x  x  x  x   x
+ VDLFL4       x  x     x  x     x  x  x              x     x     x   x
+ VDLFL5    x  x  x  x  x  x  x  x  x  x  x  x  x     x  x  x     x   x
+ VDLFL6       x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x   x
+ VDMDE1Z      x  x  x  x  x  x  x  x  x  x  x  x     x  x  x  x  x   x
+ VDMDE2Z         x  x  x  x     x  x  x  x  x  x  x     x  x  x  x   x
+ VDMDE4Z         x  x  x  x     x  x  x  x  x  x  x  x  x  x     x   x
+ VDMDE5Z         x  x  x  x     x  x  x  x  x  x  x     x  x  x  x   x
+ VDMRE1Z      x  x  x  x  x  x  x  x  x  x  x  x     x  x  x  x  x   x
+ VDMRE2Z         x  x  x        x  x  x     x     x     x  x  x
+ VDEXF1Z         x  x  x  x     x  x     x  x  x  x     x  x  x  x   x
+ VDEXF2Z                        x                                x
+ VDEXF7Z         x  x           x  x
+ VDASP1Z         x     x        x  x        x              x     x
+ VDASP2Z         x     x  x        x        x  x        x  x     x
+ VDASP4Z      x  x  x        x  x  x     x  x     x  x  x  x  x  x   x
+ VDASP5Z      x     x  x  x     x     x     x        x           x   x
+ VDLFL1Z      x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x   x
+ VDORI1Z      x  x  x  x  x     x  x  x     x  x  x  x  x  x  x  x   x
+ VDVIS1Z      x  x  x  x  x  x  x  x  x  x  x  x  x  x  x  x     x   x
+
+          101 102 103 104 105 106 107 108 109 110 111 112 113 114 115
+ VDMDE3     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDASP3     x               x       x       x                   x
+ VDLFL2     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDLFL3     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDLFL4                     x   x   x           x           x   x
+ VDLFL5     x       x       x   x   x   x   x   x   x   x   x   x   x
+ VDLFL6     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE1Z    x   x       x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE2Z    x   x   x   x   x       x   x   x   x   x   x   x   x   x
+ VDMDE4Z    x   x   x       x   x   x   x   x   x   x   x   x   x   x
+ VDMDE5Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMRE1Z    x   x       x   x   x   x   x       x   x   x   x   x   x
+ VDMRE2Z    x   x   x   x   x       x   x   x   x       x   x   x   x
+ VDEXF1Z    x   x   x   x   x   x       x   x   x       x   x       x
+ VDEXF2Z    x   x   x       x   x                       x
+ VDEXF7Z            x                                           x
+ VDASP1Z        x   x           x   x   x       x       x
+ VDASP2Z    x   x   x       x   x       x               x       x   x
+ VDASP4Z    x   x   x       x       x       x   x   x       x   x   x
+ VDASP5Z            x       x   x   x   x               x   x       x
+ VDLFL1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDORI1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDVIS1Z    x   x   x       x   x   x   x   x   x   x   x   x   x   x
+
+          116 117 118 119 120 121 122 123 124 125 126 127 128 129 130
+ VDMDE3         x   x   x   x   x   x   x   x           x   x   x
+ VDASP3                 x   x   x   x   x   x               x
+ VDLFL2     x   x   x   x   x   x   x   x   x   x       x   x   x   x
+ VDLFL3         x   x   x   x   x   x       x   x   x   x   x   x   x
+ VDLFL4         x       x   x       x       x   x   x       x   x   x
+ VDLFL5         x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDLFL6     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE2Z    x   x   x   x       x   x   x   x   x   x   x   x   x   x
+ VDMDE4Z        x   x   x   x   x   x       x   x       x   x   x   x
+ VDMDE5Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMRE1Z    x   x   x   x   x   x   x   x   x   x   x   x   x       x
+ VDMRE2Z    x       x               x   x   x   x   x   x   x
+ VDEXF1Z            x   x   x   x   x           x   x   x   x       x
+ VDEXF2Z                                                x
+ VDEXF7Z            x               x
+ VDASP1Z            x                           x       x   x
+ VDASP2Z        x   x       x   x   x       x   x       x   x
+ VDASP4Z            x   x   x   x   x   x   x   x       x       x   x
+ VDASP5Z        x   x   x   x       x           x           x       x
+ VDLFL1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDORI1Z        x   x   x   x   x   x   x   x   x       x   x   x   x
+ VDVIS1Z        x   x   x   x   x   x       x   x       x   x   x   x
+
+          131 132 133 134 135 136 137 138 139 140 141 142 143 144 145
+ VDMDE3     x   x   x   x   x               x   x           x   x   x
+ VDASP3         x   x       x   x   x       x       x   x   x   x   x
+ VDLFL2     x   x   x   x   x   x           x   x   x   x   x   x   x
+ VDLFL3     x   x   x   x   x   x           x   x   x   x   x   x   x
+ VDLFL4         x           x       x   x   x   x   x       x   x
+ VDLFL5     x   x   x   x   x   x   x       x   x   x   x   x   x
+ VDLFL6     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE1Z    x   x   x   x   x   x   x       x   x   x   x   x   x   x
+ VDMDE2Z    x       x   x   x               x   x   x       x   x   x
+ VDMDE4Z                x           x   x   x   x   x   x   x   x   x
+ VDMDE5Z    x       x   x   x       x   x   x   x   x   x   x   x   x
+ VDMRE1Z    x       x   x   x   x   x       x   x   x   x   x   x   x
+ VDMRE2Z    x       x   x   x                   x           x   x   x
+ VDEXF1Z    x           x               x   x   x   x   x   x       x
+ VDEXF2Z                                    x                   x
+ VDEXF7Z                                            x       x   x   x
+ VDASP1Z                x                       x   x   x           x
+ VDASP2Z                                x   x   x   x   x       x   x
+ VDASP4Z    x   x   x       x   x           x   x   x   x   x   x   x
+ VDASP5Z        x   x       x           x   x       x   x   x       x
+ VDLFL1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDORI1Z    x   x   x   x   x   x   x       x   x   x   x   x   x   x
+ VDVIS1Z                x           x   x   x   x   x   x   x   x   x
+
+          146 147 148 149 150 151 152 153 154 155 156 157 158 159 160
+ VDMDE3     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDASP3     x                   x       x       x           x   x
+ VDLFL2     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDLFL3     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDLFL4             x   x       x       x   x       x       x   x   x
+ VDLFL5     x       x   x       x   x   x   x   x   x       x   x   x
+ VDLFL6     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE2Z    x           x   x       x   x   x       x   x   x   x   x
+ VDMDE4Z    x   x   x   x   x   x   x   x   x       x   x   x   x   x
+ VDMDE5Z    x   x   x   x   x       x   x   x   x   x   x   x   x   x
+ VDMRE1Z    x   x   x   x   x   x   x   x   x   x   x   x   x       x
+ VDMRE2Z                x   x           x   x       x   x   x
+ VDEXF1Z            x   x   x       x   x   x       x   x   x   x   x
+ VDEXF2Z            x                               x   x
+ VDEXF7Z                                                x
+ VDASP1Z            x   x   x   x                       x   x
+ VDASP2Z            x   x   x       x               x   x       x
+ VDASP4Z    x       x       x   x   x           x   x   x       x   x
+ VDASP5Z            x   x   x   x           x           x   x
+ VDLFL1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDORI1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDVIS1Z    x   x   x   x   x   x   x   x   x       x   x   x   x   x
+
+          161 162 163 164 165 166 167 168 169 170 171 172 173 174 175
+ VDMDE3     x   x   x   x   x               x   x   x   x   x       x
+ VDASP3     x       x   x           x   x       x           x       x
+ VDLFL2     x   x   x   x   x   x   x   x   x   x           x   x   x
+ VDLFL3     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDLFL4     x   x   x   x           x   x       x       x   x   x   x
+ VDLFL5     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDLFL6     x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMDE1Z    x   x   x   x   x   x   x   x   x   x   x   x   x       x
+ VDMDE2Z    x   x       x   x   x   x       x   x   x   x   x       x
+ VDMDE4Z    x   x   x   x       x   x   x   x   x   x   x   x   x   x
+ VDMDE5Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDMRE1Z    x   x   x   x   x       x   x   x   x   x   x   x       x
+ VDMRE2Z    x   x       x   x       x       x   x   x   x           x
+ VDEXF1Z        x   x       x       x       x   x   x           x   x
+ VDEXF2Z    x   x
+ VDEXF7Z    x                       x           x
+ VDASP1Z    x       x               x           x               x
+ VDASP2Z    x   x   x               x       x   x               x   x
+ VDASP4Z    x   x   x   x   x   x   x   x   x           x   x       x
+ VDASP5Z    x   x   x       x       x               x           x
+ VDLFL1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDORI1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDVIS1Z    x   x   x   x       x   x   x   x   x   x   x   x   x   x
+
+          176 177 178 179 180 181 182 183 184 185 186 187 188 189 190
+ VDMDE3     x   x   x   x   x   x   x   x   x   x   x       x   x   x
+ VDASP3         x   x   x   x       x           x   x   x
+ VDLFL2     x   x   x   x   x   x       x   x   x   x   x   x   x   x
+ VDLFL3     x   x   x   x   x   x   x   x   x   x       x   x   x   x
+ VDLFL4                     x       x       x   x   x   x   x
+ VDLFL5     x   x       x   x   x   x   x       x       x   x   x   x
+ VDLFL6     x   x   x   x   x   x   x   x   x   x   x       x   x   x
+ VDMDE1Z    x   x   x   x   x   x   x   x   x   x   x       x   x
+ VDMDE2Z    x   x   x   x   x   x   x   x   x   x   x       x   x   x
+ VDMDE4Z    x   x   x   x   x   x   x   x   x   x           x   x   x
+ VDMDE5Z    x   x   x   x   x   x   x   x   x   x   x       x   x   x
+ VDMRE1Z    x   x   x   x   x   x   x   x   x   x   x       x   x
+ VDMRE2Z    x   x   x       x   x   x   x   x   x               x
+ VDEXF1Z    x           x       x   x   x   x   x           x   x   x
+ VDEXF2Z    x           x               x                           x
+ VDEXF7Z                    x           x
+ VDASP1Z                x   x           x       x               x   x
+ VDASP2Z    x           x           x   x                   x   x   x
+ VDASP4Z    x   x   x   x   x       x       x   x   x       x   x
+ VDASP5Z                x   x       x   x                   x       x
+ VDLFL1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDORI1Z    x   x   x   x   x   x   x   x   x   x   x   x   x   x   x
+ VDVIS1Z    x   x   x   x   x   x   x   x   x   x           x   x   x
+
+          191 192 193 194 195 196 197 198 199
+ VDMDE3     x   x   x       x   x   x
+ VDASP3             x   x       x   x
+ VDLFL2     x   x   x   x   x   x   x   x
+ VDLFL3     x   x   x   x   x   x       x
+ VDLFL4         x   x   x               x   x
+ VDLFL5         x   x   x       x       x   x
+ VDLFL6     x   x   x   x   x   x   x   x   x
+ VDMDE1Z    x   x   x   x   x   x   x   x   x
+ VDMDE2Z    x   x   x       x   x   x   x   x
+ VDMDE4Z        x   x   x   x   x       x
+ VDMDE5Z    x   x   x   x   x   x   x   x   x
+ VDMRE1Z        x   x   x   x   x   x   x   x
+ VDMRE2Z    x   x   x       x       x   x
+ VDEXF1Z        x   x   x   x   x       x   x
+ VDEXF2Z            x       x   x
+ VDEXF7Z            x           x       x
+ VDASP1Z            x   x       x       x
+ VDASP2Z        x   x   x   x   x       x   x
+ VDASP4Z    x   x       x       x   x   x
+ VDASP5Z            x   x       x   x   x   x
+ VDLFL1Z    x   x   x   x   x   x   x   x   x
+ VDORI1Z    x   x   x   x   x   x   x   x
+ VDVIS1Z        x   x   x   x   x       x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency     Pattern   Frequency
+          1        2399          68          19         135           1
+          2           3          69           2         136           1
+          3           6          70           1         137           1
+          4           8          71           2         138           1
+          5          73          72           1         139           1
+          6           3          73           1         140           1
+          7         225          74           1         141           1
+          8           1          75           1         142           1
+          9           8          76           2         143           2
+         10           1          77           2         144           1
+         11           1          78           1         145           1
+         12           2          79           3         146           1
+         13          14          80           3         147           1
+         14           4          81           1         148           1
+         15          19          82           1         149           2
+         16         186          83           1         150           1
+         17           2          84           1         151           1
+         18           1          85           1         152           1
+         19           4          86           1         153           2
+         20           6          87           1         154           1
+         21          29          88           1         155           1
+         22           9          89           2         156           2
+         23           7          90           1         157           1
+         24           1          91           1         158           1
+         25           7          92           1         159           1
+         26          10          93           1         160           1
+         27          15          94           1         161           3
+         28           1          95           1         162           1
+         29           8          96           1         163           1
+         30           1          97           1         164           4
+         31          13          98           1         165           1
+         32           1          99           1         166           1
+         33           5         100           1         167           2
+         34           1         101           1         168           1
+         35           3         102           1         169           1
+         36           1         103           1         170           1
+         37           8         104           1         171           1
+         38           1         105           1         172           1
+         39           2         106           1         173           1
+         40           3         107           1         174           1
+         41           8         108           1         175           2
+         42           1         109           1         176           1
+         43           5         110           1         177           1
+         44           1         111           1         178           1
+         45           2         112           1         179           1
+         46           1         113           1         180           1
+         47           6         114           2         181           1
+         48           2         115           3         182           1
+         49           1         116           1         183           1
+         50           1         117           1         184           1
+         51           3         118           1         185           2
+         52           1         119           1         186           1
+         53           1         120           1         187           1
+         54           1         121           1         188           1
+         55           4         122           5         189           1
+         56           2         123           1         190           1
+         57           1         124           1         191           1
+         58           5         125           1         192           1
+         59           1         126           1         193           2
+         60           3         127           1         194           1
+         61           9         128           1         195           1
+         62           3         129           1         196           1
+         63           1         130           1         197           1
+         64           5         131           1         198           1
+         65           1         132           3         199           1
+         66           4         133           1
+         67           1         134           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDMDE3        VDASP3        VDLFL2        VDLFL3        VDLFL4
+              ________      ________      ________      ________      ________
+ VDMDE3         0.982
+ VDASP3         0.936         0.949
+ VDLFL2         0.980         0.948         0.996
+ VDLFL3         0.981         0.948         0.995         0.997
+ VDLFL4         0.952         0.935         0.964         0.965         0.967
+ VDLFL5         0.976         0.947         0.990         0.992         0.964
+ VDLFL6         0.981         0.947         0.995         0.996         0.965
+ VDMDE1Z        0.979         0.946         0.992         0.993         0.964
+ VDMDE2Z        0.976         0.942         0.988         0.989         0.959
+ VDMDE4Z        0.972         0.940         0.985         0.986         0.962
+ VDMDE5Z        0.979         0.945         0.992         0.993         0.963
+ VDMRE1Z        0.976         0.944         0.990         0.990         0.962
+ VDMRE2Z        0.956         0.925         0.966         0.967         0.941
+ VDEXF1Z        0.967         0.935         0.980         0.981         0.955
+ VDEXF2Z        0.838         0.820         0.844         0.844         0.832
+ VDEXF7Z        0.821         0.813         0.827         0.827         0.823
+ VDASP1Z        0.935         0.911         0.946         0.947         0.930
+ VDASP2Z        0.947         0.918         0.958         0.958         0.939
+ VDASP4Z        0.971         0.943         0.985         0.985         0.958
+ VDASP5Z        0.942         0.916         0.954         0.954         0.936
+ VDLFL1Z        0.982         0.949         0.996         0.997         0.967
+ VDORI1Z        0.982         0.949         0.996         0.996         0.966
+ VDVIS1Z        0.973         0.940         0.986         0.987         0.962
+
+
+           Covariance Coverage
+              VDLFL5        VDLFL6        VDMDE1Z       VDMDE2Z       VDMDE4Z
+              ________      ________      ________      ________      ________
+ VDLFL5         0.993
+ VDLFL6         0.991         0.998
+ VDMDE1Z        0.989         0.995         0.995
+ VDMDE2Z        0.984         0.991         0.988         0.991
+ VDMDE4Z        0.983         0.987         0.984         0.982         0.987
+ VDMDE5Z        0.989         0.996         0.993         0.991         0.987
+ VDMRE1Z        0.987         0.993         0.992         0.987         0.984
+ VDMRE2Z        0.962         0.968         0.967         0.968         0.961
+ VDEXF1Z        0.977         0.982         0.979         0.978         0.977
+ VDEXF2Z        0.843         0.844         0.843         0.843         0.844
+ VDEXF7Z        0.826         0.827         0.826         0.826         0.827
+ VDASP1Z        0.944         0.947         0.944         0.943         0.946
+ VDASP2Z        0.956         0.959         0.957         0.956         0.958
+ VDASP4Z        0.981         0.986         0.984         0.980         0.978
+ VDASP5Z        0.952         0.955         0.953         0.950         0.952
+ VDLFL1Z        0.993         0.998         0.995         0.991         0.987
+ VDORI1Z        0.992         0.996         0.994         0.990         0.987
+ VDVIS1Z        0.984         0.988         0.985         0.982         0.987
+
+
+           Covariance Coverage
+              VDMDE5Z       VDMRE1Z       VDMRE2Z       VDEXF1Z       VDEXF2Z
+              ________      ________      ________      ________      ________
+ VDMDE5Z        0.996
+ VDMRE1Z        0.991         0.993
+ VDMRE2Z        0.968         0.966         0.968
+ VDEXF1Z        0.982         0.979         0.958         0.982
+ VDEXF2Z        0.844         0.843         0.832         0.843         0.844
+ VDEXF7Z        0.827         0.827         0.817         0.825         0.754
+ VDASP1Z        0.946         0.944         0.928         0.944         0.836
+ VDASP2Z        0.959         0.957         0.937         0.955         0.842
+ VDASP4Z        0.983         0.982         0.959         0.972         0.842
+ VDASP5Z        0.953         0.952         0.932         0.949         0.833
+ VDLFL1Z        0.996         0.993         0.968         0.982         0.844
+ VDORI1Z        0.994         0.991         0.967         0.981         0.844
+ VDVIS1Z        0.987         0.984         0.961         0.977         0.844
+
+
+           Covariance Coverage
+              VDEXF7Z       VDASP1Z       VDASP2Z       VDASP4Z       VDASP5Z
+              ________      ________      ________      ________      ________
+ VDEXF7Z        0.827
+ VDASP1Z        0.817         0.947
+ VDASP2Z        0.820         0.936         0.959
+ VDASP4Z        0.826         0.941         0.952         0.986
+ VDASP5Z        0.814         0.934         0.938         0.949         0.955
+ VDLFL1Z        0.827         0.947         0.959         0.986         0.955
+ VDORI1Z        0.827         0.947         0.958         0.985         0.955
+ VDVIS1Z        0.827         0.946         0.958         0.978         0.952
+
+
+           Covariance Coverage
+              VDLFL1Z       VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ VDLFL1Z        0.999
+ VDORI1Z        0.998         0.998
+ VDVIS1Z        0.988         0.987         0.988
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDMDE3
+      Category 1    0.092          304.000
+      Category 2    0.233          765.000
+      Category 3    0.675         2218.000
+    VDASP3
+      Category 1    0.016           52.000
+      Category 2    0.027           87.000
+      Category 3    0.050          159.000
+      Category 4    0.106          338.000
+      Category 5    0.047          150.000
+      Category 6    0.753         2390.000
+    VDLFL2
+      Category 1    0.086          287.000
+      Category 2    0.914         3047.000
+    VDLFL3
+      Category 1    0.012           40.000
+      Category 2    0.988         3298.000
+    VDLFL4
+      Category 1    0.066          213.000
+      Category 2    0.934         3023.000
+    VDLFL5
+      Category 1    0.039          129.000
+      Category 2    0.961         3195.000
+    VDLFL6
+      Category 1    0.036          121.000
+      Category 2    0.209          698.000
+      Category 3    0.755         2522.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDMDE1Z               0.511      -0.283       0.000    8.29%       0.300      0.500      0.500
+            3331.000       0.070      -0.654       1.000    3.21%       0.600      0.700
+     VDMDE2Z               0.290       0.244       0.000   18.82%       0.040      0.200      0.280
+            3316.000       0.047      -0.915       1.000    0.03%       0.360      0.480
+     VDMDE4Z               0.528      -0.174       0.000    9.92%       0.273      0.455      0.545
+            3305.000       0.087      -0.842       1.000    9.80%       0.636      0.818
+     VDMDE5Z               0.415      -0.219       0.000   20.95%       0.000      0.417      0.500
+            3332.000       0.078      -1.124       1.000    0.57%       0.500      0.667
+     VDMRE1Z               0.926      -2.537       0.000    0.06%       0.900      0.950      0.950
+            3323.000       0.014       8.514       1.000   49.77%       1.000      1.000
+     VDMRE2Z               0.686      -0.663       0.000    0.37%       0.533      0.667      0.733
+            3239.000       0.033       0.520       1.000    2.78%       0.733      0.867
+     VDEXF1Z               0.729      -0.982       0.000    0.76%       0.529      0.706      0.765
+            3287.000       0.047       0.633       1.000    9.16%       0.823      0.941
+     VDEXF2Z               0.428      -0.142       0.000    1.03%       0.251      0.384      0.432
+            2826.000       0.040      -0.643       1.000    0.04%       0.495      0.608
+     VDEXF7Z               0.648      -0.787       0.000    0.72%       0.526      0.623      0.663
+            2769.000       0.032       1.661       1.000    3.61%       0.686      0.783
+     VDASP1Z               0.458      -0.216       0.000    0.44%       0.296      0.423      0.465
+            3168.000       0.031      -0.445       1.000    0.03%       0.507      0.620
+     VDASP2Z               0.397      -0.706       0.000    0.16%       0.319      0.389      0.412
+            3210.000       0.011       1.040       1.000    0.03%       0.432      0.479
+     VDASP4Z               0.366      -0.199       0.000    1.88%       0.263      0.350      0.375
+            3300.000       0.020       0.519       1.000    0.03%       0.400      0.475
+     VDASP5Z               0.399      -0.141       0.000    0.84%       0.297      0.378      0.405
+            3197.000       0.020       0.381       1.000    0.03%       0.432      0.514
+     VDLFL1Z               0.371       0.255       0.000    0.84%       0.233      0.326      0.372
+            3345.000       0.023       0.116       1.000    0.03%       0.395      0.488
+     VDORI1Z               0.932      -3.238       0.000    0.06%       0.900      1.000      1.000
+            3340.000       0.018      12.660       1.000   64.55%       1.000      1.000
+     VDVIS1Z               0.743      -0.585       0.000    0.33%       0.545      0.636      0.727
+            3308.000       0.045      -0.162       1.000   21.61%       0.818      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                               0
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                               2077.692          2222.799
+
+          Posterior Predictive P-Value              0.000
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ MEM      BY
+    VDMDE1Z            1.000       0.000      0.000       1.000       1.000
+    VDMDE2Z            0.762       0.000      0.000       0.762       0.762
+    VDMDE3             4.468       0.000      0.000       4.468       4.468
+    VDMDE4Z            1.014       0.000      0.000       1.014       1.014
+    VDMDE5Z            0.850       0.000      0.000       0.850       0.850
+    VDMRE1Z            0.369       0.000      0.000       0.369       0.369
+    VDMRE2Z            0.530       0.000      0.000       0.530       0.530
+
+ EXF      BY
+    VDEXF1Z            1.000       0.000      0.000       1.000       1.000
+    VDEXF2Z            1.141       0.000      0.000       1.141       1.141
+    VDEXF7Z            0.875       0.000      0.000       0.875       0.875
+    VDASP1Z            1.081       0.000      0.000       1.081       1.081
+    VDASP2Z            0.568       0.000      0.000       0.568       0.568
+    VDASP3             4.652       0.000      0.000       4.652       4.652
+    VDASP4Z            0.644       0.000      0.000       0.644       0.644
+    VDASP5Z            0.670       0.000      0.000       0.670       0.670
+
+ LFL      BY
+    VDLFL1Z            1.000       0.000      0.000       1.000       1.000
+    VDLFL2             8.242       0.000      0.000       8.242       8.242
+    VDLFL3             6.853       0.000      0.000       6.853       6.853
+    VDLFL4             5.450       0.000      0.000       5.450       5.450
+    VDLFL5             4.690       0.000      0.000       4.690       4.690
+    VDLFL6             5.229       0.000      0.000       5.229       5.229
+
+ GCP      BY
+    VDORI1Z            0.444       0.000      0.000       0.444       0.444
+    VDVIS1Z            0.700       0.000      0.000       0.700       0.700
+
+ CERADWL  BY
+    VDMDE1Z            1.000       0.000      0.000       1.000       1.000
+    VDMRE1Z            1.000       0.000      0.000       1.000       1.000
+
+ LM       BY
+    VDMDE2Z            1.000       0.000      0.000       1.000       1.000
+    VDMRE2Z            1.000       0.000      0.000       1.000       1.000
+
+ GCP      BY
+    MEM                1.000       0.000      0.000       1.000       1.000
+    EXF                0.797       0.000      0.000       0.797       0.797
+    LFL                0.572       0.000      0.000       0.572       0.572
+
+ MEM      WITH
+    CERADWL            0.000       0.000      1.000       0.000       0.000
+    LM                 0.000       0.000      1.000       0.000       0.000
+
+ CERADWL  WITH
+    LM                 0.000       0.000      1.000       0.000       0.000
+    GCP                0.000       0.000      1.000       0.000       0.000
+    EXF                0.000       0.000      1.000       0.000       0.000
+    LFL                0.000       0.000      1.000       0.000       0.000
+    VDORI1Z            0.000       0.000      1.000       0.000       0.000
+    VDVIS1Z            0.000       0.000      1.000       0.000       0.000
+
+ LM       WITH
+    GCP                0.000       0.000      1.000       0.000       0.000
+    EXF                0.000       0.000      1.000       0.000       0.000
+    LFL                0.000       0.000      1.000       0.000       0.000
+    VDORI1Z            0.000       0.000      1.000       0.000       0.000
+    VDVIS1Z            0.000       0.000      1.000       0.000       0.000
+
+ Intercepts
+    VDMDE1Z            0.509       0.000      0.000       0.509       0.509
+    VDMDE2Z            0.288       0.000      0.000       0.288       0.288
+    VDMDE4Z            0.524       0.000      0.000       0.524       0.524
+    VDMDE5Z            0.414       0.000      0.000       0.414       0.414
+    VDMRE1Z            0.925       0.000      0.000       0.925       0.925
+    VDMRE2Z            0.680       0.000      0.000       0.680       0.680
+    VDEXF1Z            0.724       0.000      0.000       0.724       0.724
+    VDEXF2Z            0.386       0.000      0.000       0.386       0.386
+    VDEXF7Z            0.614       0.000      0.000       0.614       0.614
+    VDASP1Z            0.441       0.000      0.000       0.441       0.441
+    VDASP2Z            0.391       0.000      0.000       0.391       0.391
+    VDASP4Z            0.363       0.000      0.000       0.363       0.363
+    VDASP5Z            0.392       0.000      0.000       0.392       0.392
+    VDLFL1Z            0.371       0.000      0.000       0.371       0.371
+    VDORI1Z            0.931       0.000      0.000       0.931       0.931
+    VDVIS1Z            0.741       0.000      0.000       0.741       0.741
+
+ Thresholds
+    VDMDE3$1          -1.789       0.000      0.000      -1.789      -1.789
+    VDMDE3$2          -0.540       0.000      0.000      -0.540      -0.540
+    VDASP3$1          -2.647       0.000      0.000      -2.647      -2.647
+    VDASP3$2          -2.084       0.000      0.000      -2.084      -2.084
+    VDASP3$3          -1.563       0.000      0.000      -1.563      -1.563
+    VDASP3$4          -0.959       0.000      0.000      -0.959      -0.959
+    VDASP3$5          -0.763       0.000      0.000      -0.763      -0.763
+    VDLFL2$1          -1.842       0.000      0.000      -1.842      -1.842
+    VDLFL3$1          -2.911       0.000      0.000      -2.911      -2.911
+    VDLFL4$1          -1.724       0.000      0.000      -1.724      -1.724
+    VDLFL5$1          -1.995       0.000      0.000      -1.995      -1.995
+    VDLFL6$1          -2.096       0.000      0.000      -2.096      -2.096
+    VDLFL6$2          -0.779       0.000      0.000      -0.779      -0.779
+
+ Variances
+    GCP                0.034       0.000      0.000       0.034       0.034
+    CERADWL            0.003       0.000      0.000       0.003       0.003
+    LM                 0.006       0.000      0.000       0.006       0.006
+
+ Residual Variances
+    VDMDE1Z            0.023       0.000      0.000       0.023       0.023
+    VDMDE2Z            0.016       0.000      0.000       0.016       0.016
+    VDMDE4Z            0.042       0.000      0.000       0.042       0.042
+    VDMDE5Z            0.046       0.000      0.000       0.046       0.046
+    VDMRE1Z            0.005       0.000      0.000       0.005       0.005
+    VDMRE2Z            0.015       0.000      0.000       0.015       0.015
+    VDEXF1Z            0.021       0.000      0.000       0.021       0.021
+    VDEXF2Z            0.017       0.000      0.000       0.017       0.017
+    VDEXF7Z            0.019       0.000      0.000       0.019       0.019
+    VDASP1Z            0.006       0.000      0.000       0.006       0.006
+    VDASP2Z            0.004       0.000      0.000       0.004       0.004
+    VDASP4Z            0.010       0.000      0.000       0.010       0.010
+    VDASP5Z            0.010       0.000      0.000       0.010       0.010
+    VDLFL1Z            0.011       0.000      0.000       0.011       0.011
+    VDORI1Z            0.012       0.000      0.000       0.012       0.012
+    VDVIS1Z            0.029       0.000      0.000       0.029       0.029
+    MEM                0.010       0.000      0.000       0.010       0.010
+    EXF                0.004       0.000      0.000       0.004       0.004
+    LFL                0.001       0.000      0.000       0.001       0.001
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           TAU
+              VDMDE3$1      VDMDE3$2      VDASP3$1      VDASP3$2      VDASP3$3
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           TAU
+              VDASP3$4      VDASP3$5      VDLFL2$1      VDLFL3$1      VDLFL4$1
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           TAU
+              VDLFL5$1      VDLFL6$1      VDLFL6$2
+              ________      ________      ________
+                    0             0             0
+
+
+           NU
+              VDMDE3        VDASP3        VDLFL2        VDLFL3        VDLFL4
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              VDLFL5        VDLFL6        VDMDE1Z       VDMDE2Z       VDMDE4Z
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              VDMDE5Z       VDMRE1Z       VDMRE2Z       VDEXF1Z       VDEXF2Z
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              VDEXF7Z       VDASP1Z       VDASP2Z       VDASP4Z       VDASP5Z
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              VDLFL1Z       VDORI1Z       VDVIS1Z
+              ________      ________      ________
+                    0             0             0
+
+
+           LAMBDA
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ VDMDE3             0             0             0             0             0
+ VDASP3             0             0             0             0             0
+ VDLFL2             0             0             0             0             0
+ VDLFL3             0             0             0             0             0
+ VDLFL4             0             0             0             0             0
+ VDLFL5             0             0             0             0             0
+ VDLFL6             0             0             0             0             0
+ VDMDE1Z            0             0             0             0             0
+ VDMDE2Z            0             0             0             0             0
+ VDMDE4Z            0             0             0             0             0
+ VDMDE5Z            0             0             0             0             0
+ VDMRE1Z            0             0             0             0             0
+ VDMRE2Z            0             0             0             0             0
+ VDEXF1Z            0             0             0             0             0
+ VDEXF2Z            0             0             0             0             0
+ VDEXF7Z            0             0             0             0             0
+ VDASP1Z            0             0             0             0             0
+ VDASP2Z            0             0             0             0             0
+ VDASP4Z            0             0             0             0             0
+ VDASP5Z            0             0             0             0             0
+ VDLFL1Z            0             0             0             0             0
+ VDORI1Z            0             0             0             0             0
+ VDVIS1Z            0             0             0             0             0
+
+
+           LAMBDA
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ VDMDE3             0             0             0
+ VDASP3             0             0             0
+ VDLFL2             0             0             0
+ VDLFL3             0             0             0
+ VDLFL4             0             0             0
+ VDLFL5             0             0             0
+ VDLFL6             0             0             0
+ VDMDE1Z            0             0             0
+ VDMDE2Z            0             0             0
+ VDMDE4Z            0             0             0
+ VDMDE5Z            0             0             0
+ VDMRE1Z            0             0             0
+ VDMRE2Z            0             0             0
+ VDEXF1Z            0             0             0
+ VDEXF2Z            0             0             0
+ VDEXF7Z            0             0             0
+ VDASP1Z            0             0             0
+ VDASP2Z            0             0             0
+ VDASP4Z            0             0             0
+ VDASP5Z            0             0             0
+ VDLFL1Z            0             0             0
+ VDORI1Z            0             0             0
+ VDVIS1Z            0             0             0
+
+
+           THETA
+              VDMDE3        VDASP3        VDLFL2        VDLFL3        VDLFL4
+              ________      ________      ________      ________      ________
+ VDMDE3             0
+ VDASP3             0             0
+ VDLFL2             0             0             0
+ VDLFL3             0             0             0             0
+ VDLFL4             0             0             0             0             0
+ VDLFL5             0             0             0             0             0
+ VDLFL6             0             0             0             0             0
+ VDMDE1Z            0             0             0             0             0
+ VDMDE2Z            0             0             0             0             0
+ VDMDE4Z            0             0             0             0             0
+ VDMDE5Z            0             0             0             0             0
+ VDMRE1Z            0             0             0             0             0
+ VDMRE2Z            0             0             0             0             0
+ VDEXF1Z            0             0             0             0             0
+ VDEXF2Z            0             0             0             0             0
+ VDEXF7Z            0             0             0             0             0
+ VDASP1Z            0             0             0             0             0
+ VDASP2Z            0             0             0             0             0
+ VDASP4Z            0             0             0             0             0
+ VDASP5Z            0             0             0             0             0
+ VDLFL1Z            0             0             0             0             0
+ VDORI1Z            0             0             0             0             0
+ VDVIS1Z            0             0             0             0             0
+
+
+           THETA
+              VDLFL5        VDLFL6        VDMDE1Z       VDMDE2Z       VDMDE4Z
+              ________      ________      ________      ________      ________
+ VDLFL5             0
+ VDLFL6             0             0
+ VDMDE1Z            0             0             0
+ VDMDE2Z            0             0             0             0
+ VDMDE4Z            0             0             0             0             0
+ VDMDE5Z            0             0             0             0             0
+ VDMRE1Z            0             0             0             0             0
+ VDMRE2Z            0             0             0             0             0
+ VDEXF1Z            0             0             0             0             0
+ VDEXF2Z            0             0             0             0             0
+ VDEXF7Z            0             0             0             0             0
+ VDASP1Z            0             0             0             0             0
+ VDASP2Z            0             0             0             0             0
+ VDASP4Z            0             0             0             0             0
+ VDASP5Z            0             0             0             0             0
+ VDLFL1Z            0             0             0             0             0
+ VDORI1Z            0             0             0             0             0
+ VDVIS1Z            0             0             0             0             0
+
+
+           THETA
+              VDMDE5Z       VDMRE1Z       VDMRE2Z       VDEXF1Z       VDEXF2Z
+              ________      ________      ________      ________      ________
+ VDMDE5Z            0
+ VDMRE1Z            0             0
+ VDMRE2Z            0             0             0
+ VDEXF1Z            0             0             0             0
+ VDEXF2Z            0             0             0             0             0
+ VDEXF7Z            0             0             0             0             0
+ VDASP1Z            0             0             0             0             0
+ VDASP2Z            0             0             0             0             0
+ VDASP4Z            0             0             0             0             0
+ VDASP5Z            0             0             0             0             0
+ VDLFL1Z            0             0             0             0             0
+ VDORI1Z            0             0             0             0             0
+ VDVIS1Z            0             0             0             0             0
+
+
+           THETA
+              VDEXF7Z       VDASP1Z       VDASP2Z       VDASP4Z       VDASP5Z
+              ________      ________      ________      ________      ________
+ VDEXF7Z            0
+ VDASP1Z            0             0
+ VDASP2Z            0             0             0
+ VDASP4Z            0             0             0             0
+ VDASP5Z            0             0             0             0             0
+ VDLFL1Z            0             0             0             0             0
+ VDORI1Z            0             0             0             0             0
+ VDVIS1Z            0             0             0             0             0
+
+
+           THETA
+              VDLFL1Z       VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ VDLFL1Z            0
+ VDORI1Z            0             0
+ VDVIS1Z            0             0             0
+
+
+           ALPHA
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           ALPHA
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+                    0             0             0
+
+
+           BETA
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ MEM                0             0             0             0             0
+ EXF                0             0             0             0             0
+ LFL                0             0             0             0             0
+ GCP                0             0             0             0             0
+ CERADWL            0             0             0             0             0
+ LM                 0             0             0             0             0
+ VDORI1Z            0             0             0             0             0
+ VDVIS1Z            0             0             0             0             0
+
+
+           BETA
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ MEM                0             0             0
+ EXF                0             0             0
+ LFL                0             0             0
+ GCP                0             0             0
+ CERADWL            0             0             0
+ LM                 0             0             0
+ VDORI1Z            0             0             0
+ VDVIS1Z            0             0             0
+
+
+           PSI
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ MEM                0
+ EXF                0             0
+ LFL                0             0             0
+ GCP                0             0             0             0
+ CERADWL            0             0             0             0             0
+ LM                 0             0             0             0             0
+ VDORI1Z            0             0             0             0             0
+ VDVIS1Z            0             0             0             0             0
+
+
+           PSI
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ LM                 0
+ VDORI1Z            0             0
+ VDVIS1Z            0             0             0
+
+
+     STARTING VALUES
+
+
+           TAU
+              VDMDE3$1      VDMDE3$2      VDASP3$1      VDASP3$2      VDASP3$3
+              ________      ________      ________      ________      ________
+               -1.789        -0.540        -2.647        -2.084        -1.563
+
+
+           TAU
+              VDASP3$4      VDASP3$5      VDLFL2$1      VDLFL3$1      VDLFL4$1
+              ________      ________      ________      ________      ________
+               -0.959        -0.763        -1.842        -2.911        -1.724
+
+
+           TAU
+              VDLFL5$1      VDLFL6$1      VDLFL6$2
+              ________      ________      ________
+               -1.995        -2.096        -0.779
+
+
+           NU
+              VDMDE3        VDASP3        VDLFL2        VDLFL3        VDLFL4
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              VDLFL5        VDLFL6        VDMDE1Z       VDMDE2Z       VDMDE4Z
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.509         0.288         0.524
+
+
+           NU
+              VDMDE5Z       VDMRE1Z       VDMRE2Z       VDEXF1Z       VDEXF2Z
+              ________      ________      ________      ________      ________
+                0.414         0.925         0.680         0.724         0.386
+
+
+           NU
+              VDEXF7Z       VDASP1Z       VDASP2Z       VDASP4Z       VDASP5Z
+              ________      ________      ________      ________      ________
+                0.614         0.441         0.391         0.363         0.392
+
+
+           NU
+              VDLFL1Z       VDORI1Z       VDVIS1Z
+              ________      ________      ________
+                0.371         0.000         0.000
+
+
+           LAMBDA
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ VDMDE3         4.468         0.000         0.000         0.000         0.000
+ VDASP3         0.000         4.652         0.000         0.000         0.000
+ VDLFL2         0.000         0.000         8.242         0.000         0.000
+ VDLFL3         0.000         0.000         6.853         0.000         0.000
+ VDLFL4         0.000         0.000         5.450         0.000         0.000
+ VDLFL5         0.000         0.000         4.690         0.000         0.000
+ VDLFL6         0.000         0.000         5.229         0.000         0.000
+ VDMDE1Z        1.000         0.000         0.000         0.000         1.000
+ VDMDE2Z        0.762         0.000         0.000         0.000         0.000
+ VDMDE4Z        1.014         0.000         0.000         0.000         0.000
+ VDMDE5Z        0.850         0.000         0.000         0.000         0.000
+ VDMRE1Z        0.369         0.000         0.000         0.000         1.000
+ VDMRE2Z        0.530         0.000         0.000         0.000         0.000
+ VDEXF1Z        0.000         1.000         0.000         0.000         0.000
+ VDEXF2Z        0.000         1.141         0.000         0.000         0.000
+ VDEXF7Z        0.000         0.875         0.000         0.000         0.000
+ VDASP1Z        0.000         1.081         0.000         0.000         0.000
+ VDASP2Z        0.000         0.568         0.000         0.000         0.000
+ VDASP4Z        0.000         0.644         0.000         0.000         0.000
+ VDASP5Z        0.000         0.670         0.000         0.000         0.000
+ VDLFL1Z        0.000         0.000         1.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000         0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ VDMDE3         0.000         0.000         0.000
+ VDASP3         0.000         0.000         0.000
+ VDLFL2         0.000         0.000         0.000
+ VDLFL3         0.000         0.000         0.000
+ VDLFL4         0.000         0.000         0.000
+ VDLFL5         0.000         0.000         0.000
+ VDLFL6         0.000         0.000         0.000
+ VDMDE1Z        0.000         0.000         0.000
+ VDMDE2Z        1.000         0.000         0.000
+ VDMDE4Z        0.000         0.000         0.000
+ VDMDE5Z        0.000         0.000         0.000
+ VDMRE1Z        0.000         0.000         0.000
+ VDMRE2Z        1.000         0.000         0.000
+ VDEXF1Z        0.000         0.000         0.000
+ VDEXF2Z        0.000         0.000         0.000
+ VDEXF7Z        0.000         0.000         0.000
+ VDASP1Z        0.000         0.000         0.000
+ VDASP2Z        0.000         0.000         0.000
+ VDASP4Z        0.000         0.000         0.000
+ VDASP5Z        0.000         0.000         0.000
+ VDLFL1Z        0.000         0.000         0.000
+ VDORI1Z        0.000         1.000         0.000
+ VDVIS1Z        0.000         0.000         1.000
+
+
+           THETA
+              VDMDE3        VDASP3        VDLFL2        VDLFL3        VDLFL4
+              ________      ________      ________      ________      ________
+ VDMDE3         1.000
+ VDASP3         0.000         1.000
+ VDLFL2         0.000         0.000         1.000
+ VDLFL3         0.000         0.000         0.000         1.000
+ VDLFL4         0.000         0.000         0.000         0.000         1.000
+ VDLFL5         0.000         0.000         0.000         0.000         0.000
+ VDLFL6         0.000         0.000         0.000         0.000         0.000
+ VDMDE1Z        0.000         0.000         0.000         0.000         0.000
+ VDMDE2Z        0.000         0.000         0.000         0.000         0.000
+ VDMDE4Z        0.000         0.000         0.000         0.000         0.000
+ VDMDE5Z        0.000         0.000         0.000         0.000         0.000
+ VDMRE1Z        0.000         0.000         0.000         0.000         0.000
+ VDMRE2Z        0.000         0.000         0.000         0.000         0.000
+ VDEXF1Z        0.000         0.000         0.000         0.000         0.000
+ VDEXF2Z        0.000         0.000         0.000         0.000         0.000
+ VDEXF7Z        0.000         0.000         0.000         0.000         0.000
+ VDASP1Z        0.000         0.000         0.000         0.000         0.000
+ VDASP2Z        0.000         0.000         0.000         0.000         0.000
+ VDASP4Z        0.000         0.000         0.000         0.000         0.000
+ VDASP5Z        0.000         0.000         0.000         0.000         0.000
+ VDLFL1Z        0.000         0.000         0.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000         0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              VDLFL5        VDLFL6        VDMDE1Z       VDMDE2Z       VDMDE4Z
+              ________      ________      ________      ________      ________
+ VDLFL5         1.000
+ VDLFL6         0.000         1.000
+ VDMDE1Z        0.000         0.000         0.023
+ VDMDE2Z        0.000         0.000         0.000         0.016
+ VDMDE4Z        0.000         0.000         0.000         0.000         0.042
+ VDMDE5Z        0.000         0.000         0.000         0.000         0.000
+ VDMRE1Z        0.000         0.000         0.000         0.000         0.000
+ VDMRE2Z        0.000         0.000         0.000         0.000         0.000
+ VDEXF1Z        0.000         0.000         0.000         0.000         0.000
+ VDEXF2Z        0.000         0.000         0.000         0.000         0.000
+ VDEXF7Z        0.000         0.000         0.000         0.000         0.000
+ VDASP1Z        0.000         0.000         0.000         0.000         0.000
+ VDASP2Z        0.000         0.000         0.000         0.000         0.000
+ VDASP4Z        0.000         0.000         0.000         0.000         0.000
+ VDASP5Z        0.000         0.000         0.000         0.000         0.000
+ VDLFL1Z        0.000         0.000         0.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000         0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              VDMDE5Z       VDMRE1Z       VDMRE2Z       VDEXF1Z       VDEXF2Z
+              ________      ________      ________      ________      ________
+ VDMDE5Z        0.046
+ VDMRE1Z        0.000         0.005
+ VDMRE2Z        0.000         0.000         0.015
+ VDEXF1Z        0.000         0.000         0.000         0.021
+ VDEXF2Z        0.000         0.000         0.000         0.000         0.017
+ VDEXF7Z        0.000         0.000         0.000         0.000         0.000
+ VDASP1Z        0.000         0.000         0.000         0.000         0.000
+ VDASP2Z        0.000         0.000         0.000         0.000         0.000
+ VDASP4Z        0.000         0.000         0.000         0.000         0.000
+ VDASP5Z        0.000         0.000         0.000         0.000         0.000
+ VDLFL1Z        0.000         0.000         0.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000         0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              VDEXF7Z       VDASP1Z       VDASP2Z       VDASP4Z       VDASP5Z
+              ________      ________      ________      ________      ________
+ VDEXF7Z        0.019
+ VDASP1Z        0.000         0.006
+ VDASP2Z        0.000         0.000         0.004
+ VDASP4Z        0.000         0.000         0.000         0.010
+ VDASP5Z        0.000         0.000         0.000         0.000         0.010
+ VDLFL1Z        0.000         0.000         0.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000         0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              VDLFL1Z       VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ VDLFL1Z        0.011
+ VDORI1Z        0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000
+
+
+           ALPHA
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+                0.000         0.931         0.741
+
+
+           BETA
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ MEM            0.000         0.000         0.000         1.000         0.000
+ EXF            0.000         0.000         0.000         0.797         0.000
+ LFL            0.000         0.000         0.000         0.572         0.000
+ GCP            0.000         0.000         0.000         0.000         0.000
+ CERADWL        0.000         0.000         0.000         0.000         0.000
+ LM             0.000         0.000         0.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000         0.444         0.000
+ VDVIS1Z        0.000         0.000         0.000         0.700         0.000
+
+
+           BETA
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ MEM            0.000         0.000         0.000
+ EXF            0.000         0.000         0.000
+ LFL            0.000         0.000         0.000
+ GCP            0.000         0.000         0.000
+ CERADWL        0.000         0.000         0.000
+ LM             0.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000
+
+
+           PSI
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ MEM            0.010
+ EXF            0.000         0.004
+ LFL            0.000         0.000         0.001
+ GCP            0.000         0.000         0.000         0.034
+ CERADWL        0.000         0.000         0.000         0.000         0.003
+ LM             0.000         0.000         0.000         0.000         0.000
+ VDORI1Z        0.000         0.000         0.000         0.000         0.000
+ VDVIS1Z        0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              LM            VDORI1Z       VDVIS1Z
+              ________      ________      ________
+ LM             0.006
+ VDORI1Z        0.000         0.012
+ VDVIS1Z        0.000         0.000         0.029
+
+
+
+     PRIORS FOR ALL PARAMETERS            PRIOR MEAN      PRIOR VARIANCE     PRIOR STD. DEV.
+
+
+
+SUMMARIES OF PLAUSIBLE VALUES (N = NUMBER OF OBSERVATIONS * NUMBER OF IMPUTATIONS)
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+                0.000         0.001         0.000         0.001        -0.001
+
+
+           Means
+              LM
+              ________
+                0.000
+
+
+           Covariances
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ MEM            0.045
+ EXF            0.028         0.026
+ LFL            0.020         0.016         0.013
+ GCP            0.035         0.028         0.020         0.035
+ CERADWL        0.000         0.000         0.000         0.000         0.003
+ LM             0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              LM
+              ________
+ LM             0.006
+
+
+           Correlations
+              MEM           EXF           LFL           GCP           CERADWL
+              ________      ________      ________      ________      ________
+ MEM            1.000
+ EXF            0.798         1.000
+ LFL            0.846         0.882         1.000
+ GCP            0.880         0.917         0.960         1.000
+ CERADWL       -0.012        -0.032        -0.029        -0.031         1.000
+ LM             0.015         0.013         0.018         0.014        -0.003
+
+
+           Correlations
+              LM
+              ________
+ LM             1.000
+
+
+SUMMARY OF PLAUSIBLE STANDARD DEVIATION (N = NUMBER OF OBSERVATIONS)
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              MEM_SD        EXF_SD        LFL_SD        GCP_SD        CERADWL_
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           Means
+              LM_SD
+              ________
+                0.000
+
+
+           Covariances
+              MEM_SD        EXF_SD        LFL_SD        GCP_SD        CERADWL_
+              ________      ________      ________      ________      ________
+ MEM_SD         0.000
+ EXF_SD         0.000         0.000
+ LFL_SD         0.000         0.000         0.000
+ GCP_SD         0.000         0.000         0.000         0.000
+ CERADWL_       0.000         0.000         0.000         0.000         0.000
+ LM_SD          0.000         0.000         0.000         0.000         0.000
+
+
+           Covariances
+              LM_SD
+              ________
+ LM_SD          0.000
+
+
+           Correlations
+              MEM_SD        EXF_SD        LFL_SD        GCP_SD        CERADWL_
+              ________      ________      ________      ________      ________
+ MEM_SD         1.000
+ EXF_SD       999.000         1.000
+ LFL_SD       999.000       999.000         1.000
+ GCP_SD       999.000       999.000       999.000         1.000
+ CERADWL_     999.000       999.000       999.000       999.000         1.000
+ LM_SD        999.000       999.000       999.000       999.000       999.000
+
+
+           Correlations
+              LM_SD
+              ________
+ LM_SD          1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    modelgcppv*.dat
+
+  Order of variables
+
+    VDMDE3
+    VDASP3
+    VDLFL2
+    VDLFL3
+    VDLFL4
+    VDLFL5
+    VDLFL6
+    VDMDE1Z
+    VDMDE2Z
+    VDMDE4Z
+    VDMDE5Z
+    VDMRE1Z
+    VDMRE2Z
+    VDEXF1Z
+    VDEXF2Z
+    VDEXF7Z
+    VDASP1Z
+    VDASP2Z
+    VDASP4Z
+    VDASP5Z
+    VDLFL1Z
+    VDORI1Z
+    VDVIS1Z
+    MEM
+    EXF
+    LFL
+    GCP
+    CERADWL
+    LM
+    RNJID
+
+  Save file format           Free
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+  Save file
+    modelgcppv_plaus.dat
+
+  Order and format of variables
+
+    VDMDE3                           F10.3
+    VDASP3                           F10.3
+    VDLFL2                           F10.3
+    VDLFL3                           F10.3
+    VDLFL4                           F10.3
+    VDLFL5                           F10.3
+    VDLFL6                           F10.3
+    VDMDE1Z                          F10.3
+    VDMDE2Z                          F10.3
+    VDMDE4Z                          F10.3
+    VDMDE5Z                          F10.3
+    VDMRE1Z                          F10.3
+    VDMRE2Z                          F10.3
+    VDEXF1Z                          F10.3
+    VDEXF2Z                          F10.3
+    VDEXF7Z                          F10.3
+    VDASP1Z                          F10.3
+    VDASP2Z                          F10.3
+    VDASP4Z                          F10.3
+    VDASP5Z                          F10.3
+    VDLFL1Z                          F10.3
+    VDORI1Z                          F10.3
+    VDVIS1Z                          F10.3
+   +MEM                              F10.3
+    MEM Mean                         F10.3
+    MEM Median                       F10.3
+    MEM Standard Deviation           F10.3
+    MEM 2.5% Value                   F10.3
+    MEM 97.5% Value                  F10.3
+   +EXF                              F10.3
+    EXF Mean                         F10.3
+    EXF Median                       F10.3
+    EXF Standard Deviation           F10.3
+    EXF 2.5% Value                   F10.3
+    EXF 97.5% Value                  F10.3
+   +LFL                              F10.3
+    LFL Mean                         F10.3
+    LFL Median                       F10.3
+    LFL Standard Deviation           F10.3
+    LFL 2.5% Value                   F10.3
+    LFL 97.5% Value                  F10.3
+   +GCP                              F10.3
+    GCP Mean                         F10.3
+    GCP Median                       F10.3
+    GCP Standard Deviation           F10.3
+    GCP 2.5% Value                   F10.3
+    GCP 97.5% Value                  F10.3
+    CERADWL Mean                     F10.3
+    CERADWL Median                   F10.3
+    CERADWL Standard Deviation       F10.3
+    CERADWL 2.5% Value               F10.3
+    CERADWL 97.5% Value              F10.3
+    LM Mean                          F10.3
+    LM Median                        F10.3
+    LM Standard Deviation            F10.3
+    LM 2.5% Value                    F10.3
+    LM 97.5% Value                   F10.3
+    RNJID                            I5
+
+  + variables that have a value for each of the 1 imputations
+
+  Save file format
+    57F10.3 I5
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+     Beginning Time:  11:15:17
+        Ending Time:  11:15:20
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

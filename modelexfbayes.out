@@ -1,0 +1,282 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  10:43 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+    vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+    vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+    vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+    vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+    vdasp3 : MMSE spell world backwards
+    vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+    vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+    rnjid :
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdexf1z vdexf2z vdexf7z vdasp1z vdasp2z vdasp3 vdasp4z vdasp5z rnjid ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdasp3
+      ;
+    IDVARIABLE = rnjid ;
+  ANALYSIS:
+  estimator=bayes ;
+
+  OUTPUT:
+  MODEL:
+  [vdexf1z*0.72910] ;
+  [vdexf2z*0.42836] ;
+  [vdexf7z*0.64824] ;
+  [vdasp1z*0.45766] ;
+  [vdasp2z*0.39672] ;
+  [vdasp4z*0.36639] ;
+  [vdasp5z*0.39934] ;
+  [vdasp3$1*-2.64568] ;
+  [vdasp3$2*-2.11706] ;
+  [vdasp3$3*-1.63255] ;
+  [vdasp3$4*-1.04173] ;
+  [vdasp3$5*-0.84560] ;
+  exf by vdexf1z@1 ;
+  exf by vdexf2z*0.92434 ;
+  exf by vdexf7z*0.70749 ;
+  exf by vdasp1z*0.97507 ;
+  exf by vdasp2z*0.53009 ;
+  exf by vdasp3*4.53446 ;
+  exf by vdasp4z*0.62865 ;
+  exf by vdasp5z*0.61061 ;
+  vdexf1z*0.02107 ;
+  vdexf2z*0.01786 ;
+  vdexf7z*0.01914 ;
+  vdasp1z*0.00633 ;
+  vdasp2z*0.00387 ;
+  vdasp4z*0.01000 ;
+  vdasp5z*0.01056 ;
+  exf*0.02604 ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  153
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+vdasp3 : MMSE spell world backwards
+vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+rnjid :
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3343
+
+Number of dependent variables                                    8
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   VDEXF1Z     VDEXF2Z     VDEXF7Z     VDASP1Z     VDASP2Z     VDASP4Z
+   VDASP5Z
+
+  Binary and ordered categorical (ordinal)
+   VDASP3
+
+Continuous latent variables
+   EXF
+
+Variables with special functions
+
+  ID variable           RNJID
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+Link                                                        PROBIT
+
+Input data file(s)
+  __000001.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+     Number of missing data patterns            74
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDASP3        VDEXF1Z       VDEXF2Z       VDEXF7Z       VDASP1Z
+              ________      ________      ________      ________      ________
+ VDASP3         0.950
+ VDEXF1Z        0.936         0.983
+ VDEXF2Z        0.821         0.844         0.845
+ VDEXF7Z        0.814         0.826         0.754         0.828
+ VDASP1Z        0.912         0.945         0.837         0.818         0.948
+ VDASP2Z        0.919         0.957         0.843         0.821         0.937
+ VDASP4Z        0.944         0.973         0.843         0.827         0.943
+ VDASP5Z        0.917         0.950         0.834         0.815         0.935
+
+
+           Covariance Coverage
+              VDASP2Z       VDASP4Z       VDASP5Z
+              ________      ________      ________
+ VDASP2Z        0.960
+ VDASP4Z        0.953         0.987
+ VDASP5Z        0.939         0.950         0.956
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDASP3
+      Category 1    0.016           52.000
+      Category 2    0.027           87.000
+      Category 3    0.050          159.000
+      Category 4    0.106          338.000
+      Category 5    0.047          150.000
+      Category 6    0.753         2390.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDEXF1Z               0.729      -0.982       0.000    0.76%       0.529      0.706      0.765
+            3287.000       0.047       0.633       1.000    9.16%       0.823      0.941
+     VDEXF2Z               0.428      -0.142       0.000    1.03%       0.251      0.384      0.432
+            2826.000       0.040      -0.643       1.000    0.04%       0.495      0.608
+     VDEXF7Z               0.648      -0.787       0.000    0.72%       0.526      0.623      0.663
+            2769.000       0.032       1.661       1.000    3.61%       0.686      0.783
+     VDASP1Z               0.458      -0.216       0.000    0.44%       0.296      0.423      0.465
+            3168.000       0.031      -0.445       1.000    0.03%       0.507      0.620
+     VDASP2Z               0.397      -0.706       0.000    0.16%       0.319      0.389      0.412
+            3210.000       0.011       1.040       1.000    0.03%       0.432      0.479
+     VDASP4Z               0.366      -0.199       0.000    1.88%       0.263      0.350      0.375
+            3300.000       0.020       0.519       1.000    0.03%       0.400      0.475
+     VDASP5Z               0.399      -0.141       0.000    0.84%       0.297      0.378      0.405
+            3197.000       0.020       0.381       1.000    0.03%       0.432      0.514
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                              27
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                                446.002           551.431
+
+          Posterior Predictive P-Value              0.000
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ EXF      BY
+    VDEXF1Z            1.000       0.000      0.000       1.000       1.000
+    VDEXF2Z            1.147       0.028      0.000       1.095       1.202      *
+    VDEXF7Z            0.839       0.025      0.000       0.791       0.889      *
+    VDASP1Z            1.080       0.020      0.000       1.041       1.125      *
+    VDASP2Z            0.575       0.012      0.000       0.553       0.599      *
+    VDASP3             4.597       0.184      0.000       4.246       4.964      *
+    VDASP4Z            0.642       0.016      0.000       0.612       0.675      *
+    VDASP5Z            0.681       0.016      0.000       0.649       0.713      *
+
+ Intercepts
+    VDEXF1Z            0.727       0.004      0.000       0.720       0.735      *
+    VDEXF2Z            0.390       0.004      0.000       0.382       0.398      *
+    VDEXF7Z            0.619       0.004      0.000       0.611       0.626      *
+    VDASP1Z            0.444       0.003      0.000       0.438       0.451      *
+    VDASP2Z            0.392       0.002      0.000       0.388       0.396      *
+    VDASP4Z            0.365       0.002      0.000       0.360       0.370      *
+    VDASP5Z            0.394       0.003      0.000       0.389       0.399      *
+
+ Thresholds
+    VDASP3$1          -2.651       0.061      0.000      -2.760      -2.508      *
+    VDASP3$2          -2.091       0.039      0.000      -2.159      -2.013      *
+    VDASP3$3          -1.574       0.030      0.000      -1.633      -1.517      *
+    VDASP3$4          -0.969       0.031      0.000      -1.037      -0.920      *
+    VDASP3$5          -0.773       0.031      0.000      -0.838      -0.713      *
+
+ Variances
+    EXF                0.025       0.001      0.000       0.023       0.027      *
+
+ Residual Variances
+    VDEXF1Z            0.022       0.001      0.000       0.021       0.024      *
+    VDEXF2Z            0.017       0.001      0.000       0.016       0.018      *
+    VDEXF7Z            0.020       0.001      0.000       0.018       0.021      *
+    VDASP1Z            0.006       0.000      0.000       0.006       0.006      *
+    VDASP2Z            0.004       0.000      0.000       0.003       0.004      *
+    VDASP4Z            0.010       0.000      0.000       0.010       0.011      *
+    VDASP5Z            0.010       0.000      0.000       0.009       0.010      *
+
+
+     Beginning Time:  10:43:46
+        Ending Time:  10:43:51
+       Elapsed Time:  00:00:05
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

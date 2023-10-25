@@ -1,0 +1,624 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  10:41 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+    vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+    vdmde3 : MMSE 3 word delayed recall (0-3)
+      0: 0-1
+      1: 2
+      2: 3
+    vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+    vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+    vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+    vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+    rnjid :
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdmde1z vdmde2z vdmde3 vdmde4z vdmde5z vdmre1z vdmre2z rnjid ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdmde3
+      ;
+    IDVARIABLE = rnjid ;
+  ANALYSIS:
+  estimator=bayes ;
+
+  OUTPUT:
+  data imputation: ndatasets=1 ;
+  save = modelmempv*.dat ;
+
+  SAVEDATA:
+  file=modelmempv_plaus.dat ;
+  save = fscores(1) ;
+  factors = mem  ;
+
+  MODEL:
+  [vdmde1z@0.51031] ;
+  [vdmde2z@0.28856] ;
+  [vdmde4z@0.52592] ;
+  [vdmde5z@0.41445] ;
+  [vdmre1z@0.92570] ;
+  [vdmre2z@0.68077] ;
+  [vdmde3$1@-1.82109] ;
+  [vdmde3$2@-0.55732] ;
+  mem by vdmde1z@1 ;
+  mem by vdmde2z@0.75800 ;
+  mem by vdmde3@4.48677 ;
+  mem by vdmde4z@0.91644 ;
+  mem by vdmde5z@0.86007 ;
+  mem by vdmre1z@0.36122 ;
+  mem by vdmre2z@0.51171 ;
+  ceradwl by vdmde1z@1 ;
+  ceradwl by vdmre1z@1 ;
+  lm by vdmde2z@1 ;
+  lm by vdmre2z@1 ;
+  mem with ceradwl@0 ;
+  mem with lm@0 ;
+  ceradwl with lm@0 ;
+  vdmde1z@0.02134 ;
+  vdmde2z@0.01506 ;
+  vdmde4z@0.04857 ;
+  vdmde5z@0.04364 ;
+  vdmre1z@0.00498 ;
+  vdmre2z@0.01545 ;
+  mem@0.04610 ;
+  ceradwl@0.00290 ;
+  lm@0.00591 ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  151
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+vdmde3 : MMSE 3 word delayed recall (0-3)
+0: 0-1
+1: 2
+2: 3
+vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+rnjid :
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3345
+
+Number of replications
+    Requested                                                    1
+    Completed                                                    1
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   VDMDE1Z     VDMDE2Z     VDMDE4Z     VDMDE5Z     VDMRE1Z     VDMRE2Z
+
+  Binary and ordered categorical (ordinal)
+   VDMDE3
+
+Continuous latent variables
+   MEM         CERADWL     LM
+
+Variables with special functions
+
+  ID variable           RNJID
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+Link                                                        PROBIT
+Specifications for Data Imputation
+  Number of imputed data sets                                    1
+  Iteration intervals for thinning                             100
+
+Input data file(s)
+  __000001.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+     Number of missing data patterns            26
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20
+ VDMDE3    x     x  x  x     x  x     x     x  x  x  x  x           x
+ VDMDE1Z   x  x  x  x  x  x  x     x     x  x  x     x        x  x  x
+ VDMDE2Z   x  x     x  x  x  x     x  x  x  x     x  x  x  x        x
+ VDMDE4Z   x  x  x        x  x        x     x     x     x  x     x  x
+ VDMDE5Z   x  x  x  x  x  x  x     x  x  x  x     x  x  x  x        x
+ VDMRE1Z   x  x  x  x  x  x  x     x  x  x     x           x  x  x
+ VDMRE2Z   x  x        x           x              x  x              x
+
+          21 22 23 24 25 26
+ VDMDE3    x        x  x
+ VDMDE1Z   x  x     x  x  x
+ VDMDE2Z                  x
+ VDMDE4Z      x  x  x     x
+ VDMDE5Z      x  x     x  x
+ VDMRE1Z      x     x  x
+ VDMRE2Z
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency     Pattern   Frequency
+          1        3174          10           1          19           1
+          2          37          11           2          20           1
+          3           9          12           3          21           3
+          4           3          13           2          22           4
+          5          18          14           4          23           2
+          6           5          15           2          24           1
+          7          59          16           2          25           1
+          8           4          17           1          26           1
+          9           3          18           2
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDMDE3        VDMDE1Z       VDMDE2Z       VDMDE4Z       VDMDE5Z
+              ________      ________      ________      ________      ________
+ VDMDE3         0.983
+ VDMDE1Z        0.979         0.996
+ VDMDE2Z        0.977         0.989         0.991
+ VDMDE4Z        0.973         0.985         0.983         0.988
+ VDMDE5Z        0.980         0.993         0.991         0.987         0.996
+ VDMRE1Z        0.977         0.993         0.987         0.984         0.992
+ VDMRE2Z        0.956         0.967         0.968         0.961         0.968
+
+
+           Covariance Coverage
+              VDMRE1Z       VDMRE2Z
+              ________      ________
+ VDMRE1Z        0.993
+ VDMRE2Z        0.966         0.968
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDMDE3
+      Category 1    0.092          304.000
+      Category 2    0.233          765.000
+      Category 3    0.675         2218.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDMDE1Z               0.511      -0.283       0.000    8.29%       0.300      0.500      0.500
+            3331.000       0.070      -0.654       1.000    3.21%       0.600      0.700
+     VDMDE2Z               0.290       0.244       0.000   18.82%       0.040      0.200      0.280
+            3316.000       0.047      -0.915       1.000    0.03%       0.360      0.480
+     VDMDE4Z               0.528      -0.174       0.000    9.92%       0.273      0.455      0.545
+            3305.000       0.087      -0.842       1.000    9.80%       0.636      0.818
+     VDMDE5Z               0.415      -0.219       0.000   20.95%       0.000      0.417      0.500
+            3332.000       0.078      -1.124       1.000    0.57%       0.500      0.667
+     VDMRE1Z               0.926      -2.537       0.000    0.06%       0.900      0.950      0.950
+            3323.000       0.014       8.514       1.000   49.77%       1.000      1.000
+     VDMRE2Z               0.686      -0.663       0.000    0.37%       0.533      0.667      0.733
+            3239.000       0.033       0.520       1.000    2.78%       0.733      0.867
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                               0
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                                118.031           144.218
+
+          Posterior Predictive P-Value              0.000
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ MEM      BY
+    VDMDE1Z            1.000       0.000      0.000       1.000       1.000
+    VDMDE2Z            0.758       0.000      0.000       0.758       0.758
+    VDMDE3             4.487       0.000      0.000       4.487       4.487
+    VDMDE4Z            0.916       0.000      0.000       0.916       0.916
+    VDMDE5Z            0.860       0.000      0.000       0.860       0.860
+    VDMRE1Z            0.361       0.000      0.000       0.361       0.361
+    VDMRE2Z            0.512       0.000      0.000       0.512       0.512
+
+ CERADWL  BY
+    VDMDE1Z            1.000       0.000      0.000       1.000       1.000
+    VDMRE1Z            1.000       0.000      0.000       1.000       1.000
+
+ LM       BY
+    VDMDE2Z            1.000       0.000      0.000       1.000       1.000
+    VDMRE2Z            1.000       0.000      0.000       1.000       1.000
+
+ MEM      WITH
+    CERADWL            0.000       0.000      1.000       0.000       0.000
+    LM                 0.000       0.000      1.000       0.000       0.000
+
+ CERADWL  WITH
+    LM                 0.000       0.000      1.000       0.000       0.000
+
+ Intercepts
+    VDMDE1Z            0.510       0.000      0.000       0.510       0.510
+    VDMDE2Z            0.289       0.000      0.000       0.289       0.289
+    VDMDE4Z            0.526       0.000      0.000       0.526       0.526
+    VDMDE5Z            0.414       0.000      0.000       0.414       0.414
+    VDMRE1Z            0.926       0.000      0.000       0.926       0.926
+    VDMRE2Z            0.681       0.000      0.000       0.681       0.681
+
+ Thresholds
+    VDMDE3$1          -1.821       0.000      0.000      -1.821      -1.821
+    VDMDE3$2          -0.557       0.000      0.000      -0.557      -0.557
+
+ Variances
+    MEM                0.046       0.000      0.000       0.046       0.046
+    CERADWL            0.003       0.000      0.000       0.003       0.003
+    LM                 0.006       0.000      0.000       0.006       0.006
+
+ Residual Variances
+    VDMDE1Z            0.021       0.000      0.000       0.021       0.021
+    VDMDE2Z            0.015       0.000      0.000       0.015       0.015
+    VDMDE4Z            0.049       0.000      0.000       0.049       0.049
+    VDMDE5Z            0.044       0.000      0.000       0.044       0.044
+    VDMRE1Z            0.005       0.000      0.000       0.005       0.005
+    VDMRE2Z            0.015       0.000      0.000       0.015       0.015
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           TAU
+              VDMDE3$1      VDMDE3$2
+              ________      ________
+                    0             0
+
+
+           NU
+              VDMDE3        VDMDE1Z       VDMDE2Z       VDMDE4Z       VDMDE5Z
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              VDMRE1Z       VDMRE2Z
+              ________      ________
+                    0             0
+
+
+           LAMBDA
+              MEM           CERADWL       LM
+              ________      ________      ________
+ VDMDE3             0             0             0
+ VDMDE1Z            0             0             0
+ VDMDE2Z            0             0             0
+ VDMDE4Z            0             0             0
+ VDMDE5Z            0             0             0
+ VDMRE1Z            0             0             0
+ VDMRE2Z            0             0             0
+
+
+           THETA
+              VDMDE3        VDMDE1Z       VDMDE2Z       VDMDE4Z       VDMDE5Z
+              ________      ________      ________      ________      ________
+ VDMDE3             0
+ VDMDE1Z            0             0
+ VDMDE2Z            0             0             0
+ VDMDE4Z            0             0             0             0
+ VDMDE5Z            0             0             0             0             0
+ VDMRE1Z            0             0             0             0             0
+ VDMRE2Z            0             0             0             0             0
+
+
+           THETA
+              VDMRE1Z       VDMRE2Z
+              ________      ________
+ VDMRE1Z            0
+ VDMRE2Z            0             0
+
+
+           ALPHA
+              MEM           CERADWL       LM
+              ________      ________      ________
+                    0             0             0
+
+
+           BETA
+              MEM           CERADWL       LM
+              ________      ________      ________
+ MEM                0             0             0
+ CERADWL            0             0             0
+ LM                 0             0             0
+
+
+           PSI
+              MEM           CERADWL       LM
+              ________      ________      ________
+ MEM                0
+ CERADWL            0             0
+ LM                 0             0             0
+
+
+     STARTING VALUES
+
+
+           TAU
+              VDMDE3$1      VDMDE3$2
+              ________      ________
+               -1.821        -0.557
+
+
+           NU
+              VDMDE3        VDMDE1Z       VDMDE2Z       VDMDE4Z       VDMDE5Z
+              ________      ________      ________      ________      ________
+                0.000         0.510         0.289         0.526         0.414
+
+
+           NU
+              VDMRE1Z       VDMRE2Z
+              ________      ________
+                0.926         0.681
+
+
+           LAMBDA
+              MEM           CERADWL       LM
+              ________      ________      ________
+ VDMDE3         4.487         0.000         0.000
+ VDMDE1Z        1.000         1.000         0.000
+ VDMDE2Z        0.758         0.000         1.000
+ VDMDE4Z        0.916         0.000         0.000
+ VDMDE5Z        0.860         0.000         0.000
+ VDMRE1Z        0.361         1.000         0.000
+ VDMRE2Z        0.512         0.000         1.000
+
+
+           THETA
+              VDMDE3        VDMDE1Z       VDMDE2Z       VDMDE4Z       VDMDE5Z
+              ________      ________      ________      ________      ________
+ VDMDE3         1.000
+ VDMDE1Z        0.000         0.021
+ VDMDE2Z        0.000         0.000         0.015
+ VDMDE4Z        0.000         0.000         0.000         0.049
+ VDMDE5Z        0.000         0.000         0.000         0.000         0.044
+ VDMRE1Z        0.000         0.000         0.000         0.000         0.000
+ VDMRE2Z        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              VDMRE1Z       VDMRE2Z
+              ________      ________
+ VDMRE1Z        0.005
+ VDMRE2Z        0.000         0.015
+
+
+           ALPHA
+              MEM           CERADWL       LM
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           BETA
+              MEM           CERADWL       LM
+              ________      ________      ________
+ MEM            0.000         0.000         0.000
+ CERADWL        0.000         0.000         0.000
+ LM             0.000         0.000         0.000
+
+
+           PSI
+              MEM           CERADWL       LM
+              ________      ________      ________
+ MEM            0.046
+ CERADWL        0.000         0.003
+ LM             0.000         0.000         0.006
+
+
+
+     PRIORS FOR ALL PARAMETERS            PRIOR MEAN      PRIOR VARIANCE     PRIOR STD. DEV.
+
+
+
+SUMMARIES OF PLAUSIBLE VALUES (N = NUMBER OF OBSERVATIONS * NUMBER OF IMPUTATIONS)
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              MEM           CERADWL       LM
+              ________      ________      ________
+               -0.001        -0.001         0.001
+
+
+           Covariances
+              MEM           CERADWL       LM
+              ________      ________      ________
+ MEM            0.046
+ CERADWL        0.000         0.003
+ LM             0.000         0.000         0.006
+
+
+           Correlations
+              MEM           CERADWL       LM
+              ________      ________      ________
+ MEM            1.000
+ CERADWL        0.003         1.000
+ LM            -0.008        -0.029         1.000
+
+
+SUMMARY OF PLAUSIBLE STANDARD DEVIATION (N = NUMBER OF OBSERVATIONS)
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              MEM_SD        CERADWL_      LM_SD
+              ________      ________      ________
+                0.000         0.000         0.000
+
+
+           Covariances
+              MEM_SD        CERADWL_      LM_SD
+              ________      ________      ________
+ MEM_SD         0.000
+ CERADWL_       0.000         0.000
+ LM_SD          0.000         0.000         0.000
+
+
+           Correlations
+              MEM_SD        CERADWL_      LM_SD
+              ________      ________      ________
+ MEM_SD         1.000
+ CERADWL_     999.000         1.000
+ LM_SD        999.000       999.000         1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    modelmempv*.dat
+
+  Order of variables
+
+    VDMDE3
+    VDMDE1Z
+    VDMDE2Z
+    VDMDE4Z
+    VDMDE5Z
+    VDMRE1Z
+    VDMRE2Z
+    MEM
+    CERADWL
+    LM
+    RNJID
+
+  Save file format           Free
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+  Save file
+    modelmempv_plaus.dat
+
+  Order and format of variables
+
+    VDMDE3                           F10.3
+    VDMDE1Z                          F10.3
+    VDMDE2Z                          F10.3
+    VDMDE4Z                          F10.3
+    VDMDE5Z                          F10.3
+    VDMRE1Z                          F10.3
+    VDMRE2Z                          F10.3
+   +MEM                              F10.3
+    MEM Mean                         F10.3
+    MEM Median                       F10.3
+    MEM Standard Deviation           F10.3
+    MEM 2.5% Value                   F10.3
+    MEM 97.5% Value                  F10.3
+    CERADWL Mean                     F10.3
+    CERADWL Median                   F10.3
+    CERADWL Standard Deviation       F10.3
+    CERADWL 2.5% Value               F10.3
+    CERADWL 97.5% Value              F10.3
+    LM Mean                          F10.3
+    LM Median                        F10.3
+    LM Standard Deviation            F10.3
+    LM 2.5% Value                    F10.3
+    LM 97.5% Value                   F10.3
+    RNJID                            I5
+
+  + variables that have a value for each of the 1 imputations
+
+  Save file format
+    23F10.3 I5
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+     Beginning Time:  10:41:27
+        Ending Time:  10:41:29
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

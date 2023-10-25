@@ -1,0 +1,556 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  10:44 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+    vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+      0: 0-1
+      1: 2
+    vdlfl3 : Naming 2 items MMSE
+      0: 0-1
+      1: 2
+    vdlfl4 : MMSE write a sentence
+    vdlfl5 : MMSE read and follow command
+    vdlfl6 : CSID object naming
+      0: 0-2
+      1: 3
+      2: 4
+    rnjid :
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdlfl1z vdlfl2 vdlfl3 vdlfl4 vdlfl5 vdlfl6 rnjid ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdlfl2
+      vdlfl3
+      vdlfl4
+      vdlfl5
+      vdlfl6
+      ;
+    IDVARIABLE = rnjid ;
+  ANALYSIS:
+  estimator=bayes ;
+
+  OUTPUT:
+  data imputation: ndatasets=1 ;
+  save = modellflpv*.dat ;
+
+  SAVEDATA:
+  file=modellflpv_plaus.dat ;
+  save = fscores(1) ;
+  factors = lfl  ;
+
+  MODEL:
+  [vdlfl1z@0.37141] ;
+  [vdlfl2$1@-2.07503] ;
+  [vdlfl3$1@-3.24793] ;
+  [vdlfl4$1@-1.80727] ;
+  [vdlfl5$1@-2.02416] ;
+  [vdlfl6$1@-2.17617] ;
+  [vdlfl6$2@-0.82639] ;
+  lfl by vdlfl1z@1 ;
+  lfl by vdlfl2@11.20339 ;
+  lfl by vdlfl3@9.98794 ;
+  lfl by vdlfl4@6.75197 ;
+  lfl by vdlfl5@5.44765 ;
+  lfl by vdlfl6@6.50385 ;
+  vdlfl1z@0.01242 ;
+  lfl@0.01081 ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  149
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+0: 0-1
+1: 2
+vdlfl3 : Naming 2 items MMSE
+0: 0-1
+1: 2
+vdlfl4 : MMSE write a sentence
+vdlfl5 : MMSE read and follow command
+vdlfl6 : CSID object naming
+0: 0-2
+1: 3
+2: 4
+rnjid :
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3347
+
+Number of replications
+    Requested                                                    1
+    Completed                                                    1
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   VDLFL1Z
+
+  Binary and ordered categorical (ordinal)
+   VDLFL2      VDLFL3      VDLFL4      VDLFL5      VDLFL6
+
+Continuous latent variables
+   LFL
+
+Variables with special functions
+
+  ID variable           RNJID
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+Link                                                        PROBIT
+Specifications for Data Imputation
+  Number of imputed data sets                                    1
+  Iteration intervals for thinning                             100
+
+Input data file(s)
+  __000001.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+SUMMARY OF MISSING DATA PATTERNS
+
+     Number of missing data patterns            15
+
+
+     MISSING DATA PATTERNS (x = not missing)
+
+           1  2  3  4  5  6  7  8  9 10 11 12 13 14 15
+ VDLFL2    x  x     x  x  x  x              x  x     x
+ VDLFL3    x  x  x  x  x  x  x     x  x
+ VDLFL4    x        x     x  x  x     x           x  x
+ VDLFL5    x  x  x  x        x  x  x  x  x     x
+ VDLFL6    x  x  x     x  x     x     x  x  x  x  x  x
+ VDLFL1Z   x  x  x     x  x  x  x     x  x  x  x  x  x
+
+
+     MISSING DATA PATTERN FREQUENCIES
+
+    Pattern   Frequency     Pattern   Frequency     Pattern   Frequency
+          1        3216           6           6          11           1
+          2          90           7           4          12           2
+          3           3           8           3          13           1
+          4           1           9           1          14           1
+          5          13          10           4          15           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDLFL2        VDLFL3        VDLFL4        VDLFL5        VDLFL6
+              ________      ________      ________      ________      ________
+ VDLFL2         0.996
+ VDLFL3         0.995         0.997
+ VDLFL4         0.964         0.965         0.967
+ VDLFL5         0.990         0.992         0.964         0.993
+ VDLFL6         0.995         0.996         0.965         0.991         0.998
+ VDLFL1Z        0.996         0.997         0.967         0.993         0.998
+
+
+           Covariance Coverage
+              VDLFL1Z
+              ________
+ VDLFL1Z        0.999
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDLFL2
+      Category 1    0.086          287.000
+      Category 2    0.914         3047.000
+    VDLFL3
+      Category 1    0.012           40.000
+      Category 2    0.988         3298.000
+    VDLFL4
+      Category 1    0.066          213.000
+      Category 2    0.934         3023.000
+    VDLFL5
+      Category 1    0.039          129.000
+      Category 2    0.961         3195.000
+    VDLFL6
+      Category 1    0.036          121.000
+      Category 2    0.209          698.000
+      Category 3    0.755         2522.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDLFL1Z               0.371       0.255       0.000    0.84%       0.233      0.326      0.372
+            3345.000       0.023       0.116       1.000    0.03%       0.395      0.488
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                               0
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                                -23.504             9.871
+
+          Posterior Predictive P-Value              0.417
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ LFL      BY
+    VDLFL1Z            1.000       0.000      0.000       1.000       1.000
+    VDLFL2            11.203       0.000      0.000      11.203      11.203
+    VDLFL3             9.988       0.000      0.000       9.988       9.988
+    VDLFL4             6.752       0.000      0.000       6.752       6.752
+    VDLFL5             5.448       0.000      0.000       5.448       5.448
+    VDLFL6             6.504       0.000      0.000       6.504       6.504
+
+ Intercepts
+    VDLFL1Z            0.371       0.000      0.000       0.371       0.371
+
+ Thresholds
+    VDLFL2$1          -2.075       0.000      0.000      -2.075      -2.075
+    VDLFL3$1          -3.248       0.000      0.000      -3.248      -3.248
+    VDLFL4$1          -1.807       0.000      0.000      -1.807      -1.807
+    VDLFL5$1          -2.024       0.000      0.000      -2.024      -2.024
+    VDLFL6$1          -2.176       0.000      0.000      -2.176      -2.176
+    VDLFL6$2          -0.826       0.000      0.000      -0.826      -0.826
+
+ Variances
+    LFL                0.011       0.000      0.000       0.011       0.011
+
+ Residual Variances
+    VDLFL1Z            0.012       0.000      0.000       0.012       0.012
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION
+
+
+           TAU
+              VDLFL2$1      VDLFL3$1      VDLFL4$1      VDLFL5$1      VDLFL6$1
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           TAU
+              VDLFL6$2
+              ________
+                    0
+
+
+           NU
+              VDLFL2        VDLFL3        VDLFL4        VDLFL5        VDLFL6
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              VDLFL1Z
+              ________
+                    0
+
+
+           LAMBDA
+              LFL
+              ________
+ VDLFL2             0
+ VDLFL3             0
+ VDLFL4             0
+ VDLFL5             0
+ VDLFL6             0
+ VDLFL1Z            0
+
+
+           THETA
+              VDLFL2        VDLFL3        VDLFL4        VDLFL5        VDLFL6
+              ________      ________      ________      ________      ________
+ VDLFL2             0
+ VDLFL3             0             0
+ VDLFL4             0             0             0
+ VDLFL5             0             0             0             0
+ VDLFL6             0             0             0             0             0
+ VDLFL1Z            0             0             0             0             0
+
+
+           THETA
+              VDLFL1Z
+              ________
+ VDLFL1Z            0
+
+
+           ALPHA
+              LFL
+              ________
+                    0
+
+
+           BETA
+              LFL
+              ________
+ LFL                0
+
+
+           PSI
+              LFL
+              ________
+ LFL                0
+
+
+     STARTING VALUES
+
+
+           TAU
+              VDLFL2$1      VDLFL3$1      VDLFL4$1      VDLFL5$1      VDLFL6$1
+              ________      ________      ________      ________      ________
+               -2.075        -3.248        -1.807        -2.024        -2.176
+
+
+           TAU
+              VDLFL6$2
+              ________
+               -0.826
+
+
+           NU
+              VDLFL2        VDLFL3        VDLFL4        VDLFL5        VDLFL6
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              VDLFL1Z
+              ________
+                0.371
+
+
+           LAMBDA
+              LFL
+              ________
+ VDLFL2        11.203
+ VDLFL3         9.988
+ VDLFL4         6.752
+ VDLFL5         5.448
+ VDLFL6         6.504
+ VDLFL1Z        1.000
+
+
+           THETA
+              VDLFL2        VDLFL3        VDLFL4        VDLFL5        VDLFL6
+              ________      ________      ________      ________      ________
+ VDLFL2         1.000
+ VDLFL3         0.000         1.000
+ VDLFL4         0.000         0.000         1.000
+ VDLFL5         0.000         0.000         0.000         1.000
+ VDLFL6         0.000         0.000         0.000         0.000         1.000
+ VDLFL1Z        0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              VDLFL1Z
+              ________
+ VDLFL1Z        0.012
+
+
+           ALPHA
+              LFL
+              ________
+                0.000
+
+
+           BETA
+              LFL
+              ________
+ LFL            0.000
+
+
+           PSI
+              LFL
+              ________
+ LFL            0.011
+
+
+
+     PRIORS FOR ALL PARAMETERS            PRIOR MEAN      PRIOR VARIANCE     PRIOR STD. DEV.
+
+
+
+SUMMARIES OF PLAUSIBLE VALUES (N = NUMBER OF OBSERVATIONS * NUMBER OF IMPUTATIONS)
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              LFL
+              ________
+                0.000
+
+
+           Covariances
+              LFL
+              ________
+ LFL            0.011
+
+
+           Correlations
+              LFL
+              ________
+ LFL            1.000
+
+
+SUMMARY OF PLAUSIBLE STANDARD DEVIATION (N = NUMBER OF OBSERVATIONS)
+
+
+     SAMPLE STATISTICS
+
+
+           Means
+              LFL_SD
+              ________
+                0.000
+
+
+           Covariances
+              LFL_SD
+              ________
+ LFL_SD         0.000
+
+
+           Correlations
+              LFL_SD
+              ________
+ LFL_SD         1.000
+
+
+SAVEDATA INFORMATION
+
+
+  Save file
+    modellflpv*.dat
+
+  Order of variables
+
+    VDLFL2
+    VDLFL3
+    VDLFL4
+    VDLFL5
+    VDLFL6
+    VDLFL1Z
+    LFL
+    RNJID
+
+  Save file format           Free
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+  Save file
+    modellflpv_plaus.dat
+
+  Order and format of variables
+
+    VDLFL2                           F10.3
+    VDLFL3                           F10.3
+    VDLFL4                           F10.3
+    VDLFL5                           F10.3
+    VDLFL6                           F10.3
+    VDLFL1Z                          F10.3
+   +LFL                              F10.3
+    LFL Mean                         F10.3
+    LFL Median                       F10.3
+    LFL Standard Deviation           F10.3
+    LFL 2.5% Value                   F10.3
+    LFL 97.5% Value                  F10.3
+    RNJID                            I5
+
+  + variables that have a value for each of the 1 imputations
+
+  Save file format
+    12F10.3 I5
+
+  Save file record length    10000
+
+  Save missing symbol        *
+
+
+     Beginning Time:  10:44:58
+        Ending Time:  10:44:59
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

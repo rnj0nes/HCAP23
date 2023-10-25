@@ -1,0 +1,406 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  10:40 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+    vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+    vdmde3 : MMSE 3 word delayed recall (0-3)
+      0: 0-1
+      1: 2
+      2: 3
+    vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+    vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+    vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+    vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdmde1z vdmde2z vdmde3 vdmde4z vdmde5z vdmre1z vdmre2z ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdmde3
+      ;
+  ANALYSIS:
+  estimator=wlsmv ;
+  parameterization=theta ;
+
+  OUTPUT:
+  stdyx ;
+  svalues ;
+
+  MODEL:
+  mem by vdmde1z vdmde2z vdmde3 vdmde4z vdmde5z  ;
+  mem by vdmre1z vdmre2z  ;
+  ceradwl by vdmde1z@1  ;
+  ceradwl by vdmre1z@1  ;
+  lm by vdmde2z@1  ;
+  lm by vdmre2z@1  ;
+  mem with ceradwl@0 lm@0 ;
+  ceradwl with lm@0 ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  151
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdmde1z : vdmde1z = (vdmde1 - .001658167546)/ 10.00331634
+vdmde2z : vdmde2z = (vdmde2 - .003397320931)/ 25.00679464
+vdmde3 : MMSE 3 word delayed recall (0-3)
+0: 0-1
+1: 2
+2: 3
+vdmde4z : vdmde4z = (vdmde4 - .002028464166)/ 11.00405693
+vdmde5z : vdmde5z = (vdmde5 - .002091814299)/ 12.00418363
+vdmre1z : vdmre1z = (vdmre1 - .001473172551)/ 20.00294635
+vdmre2z : vdmre2z = (vdmre2 - .001699376703)/ 15.00339875
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3345
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   VDMDE1Z     VDMDE2Z     VDMDE4Z     VDMDE5Z     VDMRE1Z     VDMRE2Z
+
+  Binary and ordered categorical (ordinal)
+   VDMDE3
+
+Continuous latent variables
+   MEM         CERADWL     LM
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  __000001.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            26
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDMDE1Z       VDMDE2Z       VDMDE3        VDMDE4Z       VDMDE5Z
+              ________      ________      ________      ________      ________
+ VDMDE1Z        0.996
+ VDMDE2Z        0.989         0.991
+ VDMDE3         0.979         0.977         0.983
+ VDMDE4Z        0.985         0.983         0.973         0.988
+ VDMDE5Z        0.993         0.991         0.980         0.987         0.996
+ VDMRE1Z        0.993         0.987         0.977         0.984         0.992
+ VDMRE2Z        0.967         0.968         0.956         0.961         0.968
+
+
+           Covariance Coverage
+              VDMRE1Z       VDMRE2Z
+              ________      ________
+ VDMRE1Z        0.993
+ VDMRE2Z        0.966         0.968
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDMDE3
+      Category 1    0.092          304.000
+      Category 2    0.233          765.000
+      Category 3    0.675         2218.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDMDE1Z               0.511      -0.283       0.000    8.29%       0.300      0.500      0.500
+            3331.000       0.070      -0.654       1.000    3.21%       0.600      0.700
+     VDMDE2Z               0.290       0.244       0.000   18.82%       0.040      0.200      0.280
+            3316.000       0.047      -0.915       1.000    0.03%       0.360      0.480
+     VDMDE4Z               0.528      -0.174       0.000    9.92%       0.273      0.455      0.545
+            3305.000       0.087      -0.842       1.000    9.80%       0.636      0.818
+     VDMDE5Z               0.415      -0.219       0.000   20.95%       0.000      0.417      0.500
+            3332.000       0.078      -1.124       1.000    0.57%       0.500      0.667
+     VDMRE1Z               0.926      -2.537       0.000    0.06%       0.900      0.950      0.950
+            3323.000       0.014       8.514       1.000   49.77%       1.000      1.000
+     VDMRE2Z               0.686      -0.663       0.000    0.37%       0.533      0.667      0.733
+            3239.000       0.033       0.520       1.000    2.78%       0.733      0.867
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       23
+
+Chi-Square Test of Model Fit
+
+          Value                            156.261*
+          Degrees of Freedom                    12
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.060
+          90 Percent C.I.                    0.052  0.069
+          Probability RMSEA <= .05           0.023
+
+CFI/TLI
+
+          CFI                                0.975
+          TLI                                0.956
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           5788.920
+          Degrees of Freedom                    21
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.021
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.53375115D-02
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ MEM      BY
+    VDMDE1Z            1.000      0.000    999.000    999.000
+    VDMDE2Z            0.725      0.022     33.620      0.000
+    VDMDE3             4.630      0.200     23.109      0.000
+    VDMDE4Z            0.914      0.029     31.356      0.000
+    VDMDE5Z            0.833      0.030     27.708      0.000
+    VDMRE1Z            0.366      0.010     35.095      0.000
+    VDMRE2Z            0.496      0.017     28.462      0.000
+
+ CERADWL  BY
+    VDMDE1Z            1.000      0.000    999.000    999.000
+    VDMRE1Z            1.000      0.000    999.000    999.000
+
+ LM       BY
+    VDMDE2Z            1.000      0.000    999.000    999.000
+    VDMRE2Z            1.000      0.000    999.000    999.000
+
+ MEM      WITH
+    CERADWL            0.000      0.000    999.000    999.000
+    LM                 0.000      0.000    999.000    999.000
+
+ CERADWL  WITH
+    LM                 0.000      0.000    999.000    999.000
+
+ Intercepts
+    VDMDE1Z            0.511      0.005    107.940      0.000
+    VDMDE2Z            0.290      0.004     74.738      0.000
+    VDMDE4Z            0.528      0.005    101.565      0.000
+    VDMDE5Z            0.415      0.005     83.596      0.000
+    VDMRE1Z            0.926      0.003    282.224      0.000
+    VDMRE2Z            0.686      0.004    195.777      0.000
+
+ Thresholds
+    VDMDE3$1          -1.877      0.051    -37.129      0.000
+    VDMDE3$2          -0.641      0.034    -18.680      0.000
+
+ Variances
+    MEM                0.047      0.002     21.226      0.000
+    CERADWL            0.002      0.000      7.052      0.000
+    LM                 0.006      0.001     12.298      0.000
+
+ Residual Variances
+    VDMDE1Z            0.021      0.001     27.192      0.000
+    VDMDE2Z            0.016      0.001     25.170      0.000
+    VDMDE4Z            0.048      0.001     31.913      0.000
+    VDMDE5Z            0.045      0.001     30.488      0.000
+    VDMRE1Z            0.005      0.000     23.109      0.000
+    VDMRE2Z            0.015      0.001     29.047      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.269E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ MEM      BY
+    VDMDE1Z            0.816      0.009     86.153      0.000
+    VDMDE2Z            0.721      0.010     72.680      0.000
+    VDMDE3             0.708      0.014     49.600      0.000
+    VDMDE4Z            0.671      0.012     55.901      0.000
+    VDMDE5Z            0.647      0.013     51.271      0.000
+    VDMRE1Z            0.673      0.012     55.862      0.000
+    VDMRE2Z            0.592      0.014     42.595      0.000
+
+ CERADWL  BY
+    VDMDE1Z            0.184      0.014     13.287      0.000
+    VDMRE1Z            0.414      0.030     13.937      0.000
+
+ LM       BY
+    VDMDE2Z            0.369      0.015     25.271      0.000
+    VDMRE2Z            0.443      0.017     25.339      0.000
+
+ MEM      WITH
+    CERADWL            0.000      0.000    999.000    999.000
+    LM                 0.000      0.000    999.000    999.000
+
+ CERADWL  WITH
+    LM                 0.000      0.000    999.000    999.000
+
+ Intercepts
+    VDMDE1Z            1.928      0.031     62.822      0.000
+    VDMDE2Z            1.335      0.032     41.511      0.000
+    VDMDE4Z            1.790      0.032     56.512      0.000
+    VDMDE5Z            1.490      0.030     50.081      0.000
+    VDMRE1Z            7.862      0.049    160.694      0.000
+    VDMRE2Z            3.786      0.042     90.353      0.000
+
+ Thresholds
+    VDMDE3$1          -1.326      0.030    -43.469      0.000
+    VDMDE3$2          -0.453      0.023    -19.966      0.000
+
+ Variances
+    MEM                1.000      0.000    999.000    999.000
+    CERADWL            1.000      0.000    999.000    999.000
+    LM                 1.000      0.000    999.000    999.000
+
+ Residual Variances
+    VDMDE1Z            0.300      0.012     24.726      0.000
+    VDMDE2Z            0.343      0.014     25.021      0.000
+    VDMDE4Z            0.550      0.016     34.166      0.000
+    VDMDE5Z            0.581      0.016     35.619      0.000
+    VDMRE1Z            0.376      0.016     23.657      0.000
+    VDMRE2Z            0.453      0.015     30.118      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    VDMDE1Z            0.700      0.012     57.702      0.000
+    VDMDE2Z            0.657      0.014     47.917      0.000
+    VDMDE3             0.501      0.020     24.800      0.000      0.706
+    VDMDE4Z            0.450      0.016     27.951      0.000
+    VDMDE5Z            0.419      0.016     25.636      0.000
+    VDMRE1Z            0.624      0.016     39.292      0.000
+    VDMRE2Z            0.547      0.015     36.297      0.000
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     mem BY vdmde1z@1;
+     mem BY vdmde2z*0.72452;
+     mem BY vdmde3*4.62976;
+     mem BY vdmde4z*0.91400;
+     mem BY vdmde5z*0.83326;
+     mem BY vdmre1z*0.36617;
+     mem BY vdmre2z*0.49551;
+     ceradwl BY vdmde1z@1;
+     ceradwl BY vdmre1z@1;
+     lm BY vdmde2z@1;
+     lm BY vdmre2z@1;
+
+     mem WITH ceradwl@0;
+     mem WITH lm@0;
+     ceradwl WITH lm@0;
+
+     [ vdmde1z*0.51134 ];
+     [ vdmde2z*0.29012 ];
+     [ vdmde4z*0.52790 ];
+     [ vdmde5z*0.41530 ];
+     [ vdmre1z*0.92627 ];
+     [ vdmre2z*0.68603 ];
+
+     [ vdmde3$1*-1.87658 ];
+     [ vdmde3$2*-0.64150 ];
+
+     vdmde1z*0.02109;
+     vdmde2z*0.01620;
+     vdmde4z*0.04783;
+     vdmde5z*0.04519;
+     vdmre1z*0.00522;
+     vdmre2z*0.01489;
+     mem*0.04684;
+     ceradwl*0.00238;
+     lm*0.00644;
+
+
+
+     Beginning Time:  10:40:07
+        Ending Time:  10:40:08
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen

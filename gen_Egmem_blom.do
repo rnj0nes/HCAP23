@@ -1,0 +1,26 @@
+gen Egmem_blom = 6.203904361172635
+replace Egmem_blom = Egmem_blom + spage1*-.1155663163500436
+replace Egmem_blom = Egmem_blom + spage2*.5595950577652682
+replace Egmem_blom = Egmem_blom + spage3*-1.97018976331742
+replace Egmem_blom = Egmem_blom + female*-1.434805939210798
+replace Egmem_blom = Egmem_blom + black*-3.347728764753799
+replace Egmem_blom = Egmem_blom + hisp*-.1472195090580954
+replace Egmem_blom = Egmem_blom + (spage1*female)*.020685491430639
+replace Egmem_blom = Egmem_blom + (spage1*black)*.0387496614017207
+replace Egmem_blom = Egmem_blom + (spage1*hisp)*.0084211575308445
+replace Egmem_blom = Egmem_blom + (spage2*female)*-.1382634273987282
+replace Egmem_blom = Egmem_blom + (spage2*black)*-.2541906936290165
+replace Egmem_blom = Egmem_blom + (spage2*hisp)*-.0533940834660201
+replace Egmem_blom = Egmem_blom + (spage3*female)*.5913420303762752
+replace Egmem_blom = Egmem_blom + (spage3*black)*.9078984100777809
+replace Egmem_blom = Egmem_blom + (spage3*hisp)*-.2088235485226048
+replace Egmem_blom = Egmem_blom + (female*black)*.1010629535338843
+replace Egmem_blom = Egmem_blom + (female*hisp)*.0533568698026051
+replace Egmem_blom = Egmem_blom + schlyrs*-.1599834917704748
+replace Egmem_blom = Egmem_blom + schlyrs*spage1*.0044604255081116
+replace Egmem_blom = Egmem_blom + schlyrs*spage2*-.0350875987485273
+replace Egmem_blom = Egmem_blom + schlyrs*spage3*.1171502868405525
+replace Egmem_blom = Egmem_blom + schlyrs*female*.0219715084039548
+replace Egmem_blom = Egmem_blom + schlyrs*black*-.0044913126907759
+replace Egmem_blom = Egmem_blom + schlyrs*hisp*-.0661958415462726
+

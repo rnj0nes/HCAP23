@@ -1,0 +1,343 @@
+Mplus VERSION 8.10 (Mac)
+MUTHEN & MUTHEN
+10/02/2023  10:43 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+    Variable List -
+
+    vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+    vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+      0: 0-1
+      1: 2
+    vdlfl3 : Naming 2 items MMSE
+      0: 0-1
+      1: 2
+    vdlfl4 : MMSE write a sentence
+    vdlfl5 : MMSE read and follow command
+    vdlfl6 : CSID object naming
+      0: 0-2
+      1: 3
+      2: 4
+
+  DATA:
+    FILE = __000001.dat ;
+  VARIABLE:
+    NAMES =
+      vdlfl1z vdlfl2 vdlfl3 vdlfl4 vdlfl5 vdlfl6 ;
+    MISSING ARE ALL (-9999) ;
+    CATEGORICAL =
+      vdlfl2
+      vdlfl3
+      vdlfl4
+      vdlfl5
+      vdlfl6
+      ;
+  ANALYSIS:
+  estimator=wlsmv ;
+  parameterization=theta ;
+
+  OUTPUT:
+  stdyx ;
+  svalues ;
+
+  MODEL:
+  lfl by vdlfl1z vdlfl2 vdlfl3 vdlfl4 vdlfl5 vdlfl6  ;
+
+
+
+
+*** WARNING
+  Data set contains cases with missing on all variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on all variables:  149
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+Variable List -
+
+vdlfl1z : vdlfl1z = (vdlfl1 - .004106468202)/ 43.00821294
+vdlfl2 : Naming 2 items HRS TICS scissors, cactus
+0: 0-1
+1: 2
+vdlfl3 : Naming 2 items MMSE
+0: 0-1
+1: 2
+vdlfl4 : MMSE write a sentence
+vdlfl5 : MMSE read and follow command
+vdlfl6 : CSID object naming
+0: 0-2
+1: 3
+2: 4
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3347
+
+Number of dependent variables                                    6
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+
+Observed dependent variables
+
+  Continuous
+   VDLFL1Z
+
+  Binary and ordered categorical (ordinal)
+   VDLFL2      VDLFL3      VDLFL4      VDLFL5      VDLFL6
+
+Continuous latent variables
+   LFL
+
+
+Estimator                                                    WLSMV
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Parameterization                                             THETA
+Link                                                        PROBIT
+
+Input data file(s)
+  __000001.dat
+
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns            15
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              VDLFL1Z       VDLFL2        VDLFL3        VDLFL4        VDLFL5
+              ________      ________      ________      ________      ________
+ VDLFL1Z        0.999
+ VDLFL2         0.996         0.996
+ VDLFL3         0.997         0.995         0.997
+ VDLFL4         0.967         0.964         0.965         0.967
+ VDLFL5         0.993         0.990         0.992         0.964         0.993
+ VDLFL6         0.998         0.995         0.996         0.965         0.991
+
+
+           Covariance Coverage
+              VDLFL6
+              ________
+ VDLFL6         0.998
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    VDLFL2
+      Category 1    0.086          287.000
+      Category 2    0.914         3047.000
+    VDLFL3
+      Category 1    0.012           40.000
+      Category 2    0.988         3298.000
+    VDLFL4
+      Category 1    0.066          213.000
+      Category 2    0.934         3023.000
+    VDLFL5
+      Category 1    0.039          129.000
+      Category 2    0.961         3195.000
+    VDLFL6
+      Category 1    0.036          121.000
+      Category 2    0.209          698.000
+      Category 3    0.755         2522.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     VDLFL1Z               0.371       0.255       0.000    0.84%       0.233      0.326      0.372
+            3345.000       0.023       0.116       1.000    0.03%       0.395      0.488
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       14
+
+Chi-Square Test of Model Fit
+
+          Value                             43.863*
+          Degrees of Freedom                     9
+          P-Value                           0.0000
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.034
+          90 Percent C.I.                    0.024  0.044
+          Probability RMSEA <= .05           0.995
+
+CFI/TLI
+
+          CFI                                0.978
+          TLI                                0.964
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                           1616.973
+          Degrees of Freedom                    15
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.051
+
+Optimum Function Value for Weighted Least-Squares Estimator
+
+          Value                     0.43931120D-02
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ LFL      BY
+    VDLFL1Z            1.000      0.000    999.000    999.000
+    VDLFL2            11.412      1.270      8.989      0.000
+    VDLFL3            11.806      2.185      5.403      0.000
+    VDLFL4             7.039      0.715      9.839      0.000
+    VDLFL5             6.127      0.766      7.996      0.000
+    VDLFL6             6.855      0.499     13.737      0.000
+
+ Intercepts
+    VDLFL1Z            0.371      0.003    138.443      0.000
+
+ Thresholds
+    VDLFL2$1          -2.107      0.126    -16.656      0.000
+    VDLFL3$1          -3.554      0.370     -9.599      0.000
+    VDLFL4$1          -1.862      0.069    -26.945      0.000
+    VDLFL5$1          -2.087      0.080    -26.182      0.000
+    VDLFL6$1          -2.199      0.061    -35.963      0.000
+    VDLFL6$2          -0.844      0.033    -25.471      0.000
+
+ Variances
+    LFL                0.011      0.001     15.005      0.000
+
+ Residual Variances
+    VDLFL1Z            0.013      0.001     19.526      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.497E-06
+       (ratio of smallest to largest eigenvalue)
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ LFL      BY
+    VDLFL1Z            0.674      0.020     34.091      0.000
+    VDLFL2             0.762      0.032     23.745      0.000
+    VDLFL3             0.772      0.055     13.963      0.000
+    VDLFL4             0.587      0.036     16.315      0.000
+    VDLFL5             0.534      0.045     11.910      0.000
+    VDLFL6             0.577      0.023     24.809      0.000
+
+ Intercepts
+    VDLFL1Z            2.431      0.037     66.147      0.000
+
+ Thresholds
+    VDLFL2$1          -1.365      0.031    -44.151      0.000
+    VDLFL3$1          -2.258      0.060    -37.397      0.000
+    VDLFL4$1          -1.508      0.034    -44.283      0.000
+    VDLFL5$1          -1.765      0.040    -44.291      0.000
+    VDLFL6$1          -1.796      0.041    -44.164      0.000
+    VDLFL6$2          -0.690      0.024    -29.150      0.000
+
+ Variances
+    LFL                1.000      0.000    999.000    999.000
+
+ Residual Variances
+    VDLFL1Z            0.546      0.027     20.470      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed     Scale
+    Variable        Estimate       S.E.  Est./S.E.    P-Value     Factors
+
+    VDLFL1Z            0.454      0.027     17.045      0.000
+    VDLFL2             0.580      0.049     11.873      0.000      0.648
+    VDLFL3             0.596      0.085      6.982      0.000      0.635
+    VDLFL4             0.344      0.042      8.157      0.000      0.810
+    VDLFL5             0.285      0.048      5.955      0.000      0.846
+    VDLFL6             0.332      0.027     12.404      0.000      0.817
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     lfl BY vdlfl1z@1;
+     lfl BY vdlfl2*11.41201;
+     lfl BY vdlfl3*11.80585;
+     lfl BY vdlfl4*7.03877;
+     lfl BY vdlfl5*6.12734;
+     lfl BY vdlfl6*6.85468;
+
+     [ vdlfl1z*0.37139 ];
+
+     [ vdlfl2$1*-2.10651 ];
+     [ vdlfl3$1*-3.55361 ];
+     [ vdlfl4$1*-1.86194 ];
+     [ vdlfl5$1*-2.08651 ];
+     [ vdlfl6$1*-2.19872 ];
+     [ vdlfl6$2*-0.84439 ];
+
+     vdlfl1z*0.01273;
+     lfl*0.01060;
+
+
+
+     Beginning Time:  10:43:54
+        Ending Time:  10:43:54
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2023 Muthen & Muthen
