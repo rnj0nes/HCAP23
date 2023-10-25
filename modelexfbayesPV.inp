@@ -1,0 +1,65 @@
+TITLE: 
+  Variable List - 
+
+  vdexf1z : vdexf1z = (vdexf1 - .002307011643)/ 17.00461402
+  vdexf2z : vdexf2z = (vdexf2 - .00004913090975)/ .3924776351
+  vdexf7z : vdexf7z = (vdexf7 - 409.0196249)/ 175.0392498
+  vdasp1z : vdasp1z = (vdasp1 - .007827027941)/ 71.01565406
+  vdasp2z : vdasp2z = (vdasp2 - .00005338379933)/ .8074956097
+  vdasp3 : MMSE spell world backwards
+  vdasp4z : vdasp4z = (vdasp4 - .007123559752)/ 80.01424712
+  vdasp5z : vdasp5z = (vdasp5 - .003293547937)/ 37.0065871
+  rnjid : 
+ 
+DATA: 
+  FILE = __000001.dat ;
+VARIABLE:
+  NAMES = 
+    vdexf1z vdexf2z vdexf7z vdasp1z vdasp2z vdasp3 vdasp4z vdasp5z rnjid ; 
+  MISSING ARE ALL (-9999) ; 
+  CATEGORICAL = 
+    vdasp3
+    ;
+  IDVARIABLE = rnjid ;
+ANALYSIS: 
+estimator=bayes ; 
+ 
+OUTPUT: 
+data imputation: ndatasets=1 ; 
+save = modelexfpv*.dat ; 
+ 
+SAVEDATA: 
+file=modelexfpv_plaus.dat ; 
+save = fscores(1) ; 
+factors = exf  ; 
+ 
+MODEL: 
+[vdexf1z@0.72664] ; 
+[vdexf2z@0.38984] ; 
+[vdexf7z@0.61859] ; 
+[vdasp1z@0.44398] ; 
+[vdasp2z@0.39201] ; 
+[vdasp4z@0.36454] ; 
+[vdasp5z@0.39370] ; 
+[vdasp3$1@-2.63003] ; 
+[vdasp3$2@-2.07622] ; 
+[vdasp3$3@-1.56444] ; 
+[vdasp3$4@-0.96647] ; 
+[vdasp3$5@-0.77164] ; 
+exf by vdexf1z@1 ; 
+exf by vdexf2z@1.13593 ; 
+exf by vdexf7z@0.83290 ; 
+exf by vdasp1z@1.07129 ; 
+exf by vdasp2z@0.57081 ; 
+exf by vdasp3@4.57477 ; 
+exf by vdasp4z@0.63777 ; 
+exf by vdasp5z@0.67554 ; 
+vdexf1z@0.02224 ; 
+vdexf2z@0.01656 ; 
+vdexf7z@0.01947 ; 
+vdasp1z@0.00594 ; 
+vdasp2z@0.00361 ; 
+vdasp4z@0.01030 ; 
+vdasp5z@0.00951 ; 
+exf@0.02527 ; 
+ 
