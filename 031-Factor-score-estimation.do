@@ -155,7 +155,7 @@ local ceradwl_lab "CERAD word list methods factor"
 foreach domain in mem exf lfl gcp {
 	use w031.dta , clear
 	
-	tex \subsection{``x'domain'}
+	*tex \subsection{``x'domain'}
 
 	cap macro drop _varlist
 	cap macro drop _catlist
@@ -193,7 +193,7 @@ foreach domain in mem exf lfl gcp {
 	}
 	mat E=r(estimate)
 	mat E1=E
-	fitsis `m'
+	*fitsis `m'
 	global start = `m'
 	global end =`m'
 	
