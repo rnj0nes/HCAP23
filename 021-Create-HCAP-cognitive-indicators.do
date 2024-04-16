@@ -22,12 +22,13 @@ local varlist ""
 * Orientation
 * ---------------------------------------------------------
 * MMSE 10 items
-local var "vdori1"
-local `var'_domain "Orientation"
-local `var'_lab "MMSE 10 items (number of correct, 0-10)"
+local var "vdori1"  // var <- "vdori1"
+local `var'_domain "Orientation" // vdori1_domain <- "Orientation"
+local `var'_lab "MMSE 10 items (number correct, 0-10)" // vdori1_lab <- "MMSE 10 items (number correct, 0-10)"
+* Code lines 29-38 is a loop that writes local vdori_source which is a list of items used in the score
 cap macro drop _`var'_source
 local sc="1"
-foreach x in t p {
+foreach x in t p { 
     if "`x'"=="p" {
         local sc="i"
     }
@@ -44,7 +45,7 @@ scoreit ``var'_source' , ///
 local `var'_tx "sum of correct source items"
 local `var'_alpha  : di %5.3f `r(alpha)' 
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* captures orientation to time and place using 10 items from the MMSE. It is coded as the sum of the number of MMSE orientation items (*``var'_source''*) that have a value of 1, with 97, 98, and 99 responses treated as missing values. Persons who do not have at least 1 item in the list that has a response of 1 or 5 are treated as missing. This sum has a Cronbach's alpha of ``var'_alpha'." 
+local `var'_note "`var' captures orientation to time and place using 10 items from the MMSE. It is coded as the sum of the number of MMSE orientation items (``var'_source'') that have a value of 1, with 97, 98, and 99 responses treated as missing values. Persons who do not have at least 1 item in the list that has a response of 1 or 5 are treated as missing. This sum has a Cronbach's alpha of ``var'_alpha'." 
 local varlist "`varlist' `var'"
 
 * =========================================================
@@ -61,7 +62,7 @@ replace `var'=. if r1fword_dscore==1 // missing if imputed
 local `var'_tx "restriction of source"
 la var `var' "``var'_lab'"
 local `var'_alpha  "NA"
-local `var'_note "*`var'* is the number correct on the CERAD delayed 10 word recall task. It is simply a renaming of *``var'_source'*. **Special handling** if the HRS variable *r1fword_dscore* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing." 
+local `var'_note "`var' is the number correct on the CERAD delayed 10 word recall task. It is simply a renaming of ``var'_source'. Special handling: if the HRS variable r1fword_dscore has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing." 
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -75,7 +76,7 @@ replace `var'=. if r1flmb_delscore==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* is the number correct on the WMS-IV Logical Memory I delayed story recall task. There are 25 story points to be recalled, and the source variable is the sum of these that are recalled. *`var'* is basically a renaming of *``var'_source'*. **Special handling:** if the HRS variable *r1flmb_delscore* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing." 
+local `var'_note "`var' is the number correct on the WMS-IV Logical Memory I delayed story recall task. There are 25 story points to be recalled, and the source variable is the sum of these that are recalled. `var' is basically a renaming of ``var'_source'. Special handling: if the HRS variable r1flmb_delscore has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing." 
 local varlist "`varlist' `var'"
 
 
@@ -91,14 +92,14 @@ gen `var' = ``var'_source' if inlist(``var'_source',97,98,99)~=1
 local `var'_tx "restriction and recoding of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* represents the number of words recalled after a delay on the MMSE 3 word list. It is simply a recoded version of the original variable *``var'_source'*, with responses of 97, 98 , 99 treated as missing." 
+local `var'_note "`var' represents the number of words recalled after a delay on the MMSE 3 word list. It is simply a recoded version of the original variable ``var'_source', with responses of 97, 98 , 99 treated as missing." 
 local varlist "`varlist' `var'"
 * Refinement
 * vdmde3 MMSE 3 word delayed recognition
 clonevar vvdmde3o=vdmde3
 recode vdmde3 (0=0)(1=0)(2=1)(3=2)
 vlabel vdmde3 "0-1" "2" "3"
-local vdmde3_note "`vdmde3_note' To address maldistribtion, observed values of 0 and 1 are scored 0, observed values of 2 are scored 1, and observed values of 3 are scored 2. Note that in Jones et al (2023) there was a mistake and 3's were recoded to 1."
+local vdmde3_note "`vdmde3_note' To address maldistribtion, observed values of 0 and 1 are scored 0, observed values of 2 are scored 1, and observed values of 3 are scored 2. Note that in the previous data distribution (and Jones et al 2003, Manly et al 2022) there was a mistake and 3's were recoded to 1."
 
 * ---------------------------------------------------------
 * PRAXIS RECALL
@@ -112,7 +113,7 @@ replace `var'=. if r1fcpdel_score==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* is the number correct shapes drawn from memory after a delay on the CERAD Constructional Praxis task. This is a delayed recall of the geometric shapes drawn in the test of CERAD Constructional Praxis (immediate) task. Respondents are asked to draw the shapes from earlier in the interview to the best of their memory. It is simply a renaming of ``var'_source'. **Special handling:** if the HRS variable *r1fcpdel_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing." 
+local `var'_note "`var' is the number correct shapes drawn from memory after a delay on the CERAD Constructional Praxis task. This is a delayed recall of the geometric shapes drawn in the test of CERAD Constructional Praxis (immediate) task. Respondents are asked to draw the shapes from earlier in the interview to the best of their memory. It is simply a renaming of ``var'_source'. Special handling: if the HRS variable r1fcpdel_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing." 
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -127,7 +128,7 @@ replace `var'=. if r1fbm_delscore==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "This item *`var'* is simply a renaming of *``var'_source'*. No accomodation for missing or other non-response codes has been used. **Special handling:** if the variable *r1fbm_delscore* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "This item `var' is simply a renaming of ``var'_source'. No accomodation for missing or other non-response codes has been used. Special handling: if the variable r1fbm_delscore has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -142,7 +143,7 @@ replace `var'=. if r1fwlrec_totscore==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha =  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "This item *`var'* is simply a renaming of *``var'_source'*. No accomodation for missing or other non-response codes has been used. **Special handling:** if the variable *r1fwlrec_totscore* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "This item `var' is simply a renaming of ``var'_source'. No accomodation for missing or other non-response codes has been used. Special handling: if the variable r1fwlrec_totscore has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * =========================================================
@@ -158,7 +159,7 @@ replace `var'=. if r1flmb_recoscore ==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* is the number correct on the WMS-IV Logical Memory I story recognition task. It is simply a renaming of *``var'_source'* but missing codes (97, 98, 99) are treated as missing. **Special handling:** if the  variable *r1flmb_recoscore* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "`var' is the number correct on the WMS-IV Logical Memory I story recognition task. It is simply a renaming of ``var'_source' but missing codes (97, 98, 99) are treated as missing. Special handling: if the  variable r1flmb_recoscore has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 
@@ -177,7 +178,7 @@ replace `var'=. if r1frv_score ==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* is the score from Raven's progressive matrices. It is based only on *``var'_source'* **Special handling:** if the  variable *r1frv_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "`var' is the score from Raven's progressive matrices. It is based only on ``var'_source' Special handling: if the  variable r1frv_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -192,7 +193,7 @@ replace `var'=. if r1fns_score ==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "This is from the *2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary*: Developed for the HRS, this section evaluates Respondents ability for numeric reasoning by presenting a series of 6 individual series of numbers, where one or two numbers in the series is missing. The Respondent is asked to take as much time as s/he needs, with the help of scrap paper and a pencil, to identify the missing number/s. This test is a block-adaptive test. Respondents are given a set of three number series questions of varying difficulty to first complete. Based on the number of correct responses in this first set of three (score Range = 0 to 4), Respondents are then assigned to a second set of three questions, for which the difficulty level is based on the number correct on the first set. The HRS uses two versions of the Number Series questions and respondents are assigned to the version that was not done in the previous wave. For HRS-HCAP, Respondents were assigned to the Number Series that was not assigned in the 2016 Core interview. If a Respondent was not able to do the Number Series section in the 2016 Core interview (not able to do practice questions, was too confused), then they were skipped out of this section. In creating *`var'*, missing codes (codes 996 and higher) on the source variable *``var'_source'* are treated as system missing.  **Special handling:** if the  variable *r1fns_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "This is from the 2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary: Developed for the HRS, this section evaluates Respondents ability for numeric reasoning by presenting a series of 6 individual series of numbers, where one or two numbers in the series is missing. The Respondent is asked to take as much time as s/he needs, with the help of scrap paper and a pencil, to identify the missing number/s. This test is a block-adaptive test. Respondents are given a set of three number series questions of varying difficulty to first complete. Based on the number of correct responses in this first set of three (score Range = 0 to 4), Respondents are then assigned to a second set of three questions, for which the difficulty level is based on the number correct on the first set. The HRS uses two versions of the Number Series questions and respondents are assigned to the version that was not done in the previous wave. For HRS-HCAP, Respondents were assigned to the Number Series that was not assigned in the 2016 Core interview. If a Respondent was not able to do the Number Series section in the 2016 Core interview (not able to do practice questions, was too confused), then they were skipped out of this section. In creating `var', missing codes (codes 996 and higher) on the source variable ``var'_source' are treated as system missing.  Special handling: if the  variable r1fns_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -206,7 +207,7 @@ replace `var'=. if r1ftma_score ==1 // missing if imputed
 local `var'_tx "restriction and transformation of source"
 local `var'_alpha "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* is calculated as $$1-\frac{\log (T_A)}{\log (300)}$$ where $T_A$ is the number of seconds needed to complete the Trails A task, and 300 is the ceiling on the number of seconds allowed to complete the task. The resulting score is 0 when the participant took 300 seconds to complete the task (or did not complete the task in 300 seconds and was assigned a score of 300), and 1 when the task was completed in 0 seconds (unsurprisingly, we do not observe scores of 1). The direction of this log transformed score is such that higher scores (approaching 1) are better and indicate faster performance. Missing codes (i.e., not between 0 and 300 on the source variables) are treated as missing. **Special handling:** if the  variable *r1ftma_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "`var' is calculated as 1-{log(T_A)/log(300)} where T_A is the number of seconds needed to complete the Trails A task, and 300 is the ceiling on the number of seconds allowed to complete the task. The resulting score is 0 when the participant took 300 seconds to complete the task (or did not complete the task in 300 seconds and was assigned a score of 300), and 1 when the task was completed in 0 seconds (unsurprisingly, we do not observe scores of 1). The direction of this log transformed score is such that higher scores (approaching 1) are better and indicate faster performance. Missing codes (i.e., not between 0 and 300 on the source variables) are treated as missing. Special handling: if the  variable r1ftma_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -223,7 +224,7 @@ local `var'_tx "restriction and transformation of source"
 cap drop _tmtbtime
 local `var'_alpha "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* is computed as $$1-\frac{\log (T_B)}{\log (300)}$$ where $T_B$ is the number of seconds needed to complete the Trails B task, and 300 is the ceiling on the number of seconds allowed to complete the task. The resulting score is 0 when the participant took 300 seconds to complete the task (or did not complete the task in 300 seconds and was assigned a score of 300), and 1 when the task was completed in 0 seconds (unsurprisingly, we do not observe scores of 1). The direction of this log transformed score is such that higher scores (approaching 1) are better and indicate faster performance. Missing codes (i.e., not between 0 and 300 on the source variable(s)) are treated as missing. NB the reverse transformation is $300^{(1-B)}$ where $B$ is the log transformed, log-normalized complement number of seconds to complete the Trails B task. **Special handling:** if the  variable *r1ftmb_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "`var' is computed as 1-{log(T_B)/log(300)} where T_B is the number of seconds needed to complete the Trails B task, and 300 is the ceiling on the number of seconds allowed to complete the task. The resulting score is 0 when the participant took 300 seconds to complete the task (or did not complete the task in 300 seconds and was assigned a score of 300), and 1 when the task was completed in 0 seconds (unsurprisingly, we do not observe scores of 1). The direction of this log transformed score is such that higher scores (approaching 1) are better and indicate faster performance. Missing codes (i.e., not between 0 and 300 on the source variable(s)) are treated as missing. NB the reverse transformation is 300^(1-B) where B is the log transformed, log-normalized complement number of seconds to complete the Trails B task. Special handling: if the  variable r1ftmb_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -238,7 +239,7 @@ replace `var'=. if r1fdig_score ==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "The varialbe *`var'* is simply a renaming of ``var'_source'. No accomodation for missing or other non-response codes has been used. Note that according to the *2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary}, the SDMT score is the number of correct pairings minus any mistakes or skips. **Special handling:** if the  variable *r1fdig_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "The varialbe `var' is simply a renaming of ``var'_source'. No accomodation for missing or other non-response codes has been used. Note that according to the 2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary}, the SDMT score is the number of correct pairings minus any mistakes or skips. Special handling: if the  variable r1fdig_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -256,7 +257,7 @@ scoreit ``var'_source' , ///
 local `var'_alpha  : di %5.3f `r(alpha)' 
 local `var'_tx "sum of correct source items"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'*is the sum of 5 recorded responses to the MMSE spell world backwards task, recored with five correct/incorrect indicators. Only correct responses are summed (code 1 on source variables). At least 1 of the five indicators must have a non-missing code (not missing or 96, 97, 98, 99) to get the 0-5 score on *`var'*." 
+local `var'_note "`var'is the sum of 5 recorded responses to the MMSE spell world backwards task, recored with five correct/incorrect indicators. Only correct responses are summed (code 1 on source variables). At least 1 of the five indicators must have a non-missing code (not missing or 96, 97, 98, 99) to get the 0-5 score on `var'." 
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -266,12 +267,15 @@ local `var'_lab "Backwards counting"
 local `var'_source "r1bc_score"
 local `var'_domain "Attention, speed"
 cap drop `var'
-gen `var'= ``var'_source' if ``var'_source'<96
+**** Correction in line below 2023-12-06
+**** the source item values 97, 98, 99 are valid responses
+**** was: gen `var'= ``var'_source' if ``var'_source'<96
+gen `var'= ``var'_source' 
 replace `var'=. if r1fbc_score ==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "This is from the  *2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary}: This test assesses speed and attention and is derived from the Backward Count measure in the MIDUS Study. Respondents are asked to begin at 100 and to count backwards as fast as possible. They are given 30 seconds and the number they reach and number of errors are recorded. The variable `var' is simply a renaming of the variable ``var'_source', with values greater than or equal to 96 treated as missing values. **Special handling:** if the  variable *r1fbc_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "This is from the  2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary: This test assesses speed and attention and is derived from the Backward Count measure in the MIDUS Study. Respondents are asked to begin at 100 and to count backwards as fast as possible. They are given 30 seconds and the number they reach and number of errors are recorded. The variable `var' is simply a renaming of the variable ``var'_source'. (Note: in analyses prior to 2023-12-06 values greater than or equal to 96 were treated as missing values and that is a mistake, those are valid responses to this item). Special handling: if the  variable r1fbc_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -286,7 +290,7 @@ replace `var'=. if r1flc_score ==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "This is from the  *2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary}: This test has been included in ELSA and assesses attention and speed. Respondents are given a paper with a large grid of letters and are asked to scan the grid as quickly as possible in a minute and to cross out as many *P} and *W} letters as they can in that time. This variable (*`var'*, renamed and otherwise unchanged version of *``var'_source'+) is the number of correctly crossed-out letters. **Special handling:** if the  variable *r1fbc_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "This is from the  2016 Harmonized Cognitive Assessment Protocol (HCAP) Study Protocol Summary}: This test has been included in ELSA and assesses attention and speed. Respondents are given a paper with a large grid of letters and are asked to scan the grid as quickly as possible in a minute and to cross out as many P and W letters as they can in that time. This variable (`var', renamed and otherwise unchanged version of ``var'_source') is the number of correctly crossed-out letters. Special handling: if the  variable r1fbc_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * =========================================================
@@ -303,7 +307,7 @@ replace `var'=. if r1fverbal_score ==1 // missing if imputed
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "The created variable *`var' is simply a copied or renamed version of *``var'_source'*. **Special handling:** if the  variable *r1fverbal_score* has a value of 1, this implies that *``var'_source'* is imputed the created variable *`var'* is set to missing."
+local `var'_note "The created variable `var' is simply a copied or renamed version of ``var'_source'. Special handling: if the  variable r1fverbal_score has a value of 1, this implies that ``var'_source' is imputed the created variable `var' is set to missing."
 local varlist "`varlist' `var'"
 
 * ---------------------------------------------------------
@@ -344,12 +348,11 @@ scoreit ``var'_source' , ///
    gen(`var') // name of variable 
 local `var'_alpha  : di %5.3f `r(alpha)'
 la var `var' "``var'_lab'"
-local `var'_note "This is the number of correct responses to the two MMSE name objects questions (``var'_source'). Respondents must have at least 1 non-missing (not system missing, not 97, 98, 99) to get a score." 
 local varlist "`varlist' `var'"
 * Refine
 recode vdlfl3 (0=0)(1=0)(2=1)
 vlabel vdlfl3 "0-1" "2"
-local vdlfl3_note "`vdlfl3_note' To address maldistribtion, observed values of 0 and 1 are scored 0, observed values of 2 are scored 1."
+local `var'_note "This is the number of correct responses to the two MMSE name objects questions (``var'_source'). Respondents must have at least 1 non-missing (not system missing, not 97, 98, 99) to get a score. To address maldistribtion, observed values of 0 and 1 are scored 0, observed values of 2 are scored 1."
 local `var'_tx "recoded sum of correct responses in source items"
 
 * ---------------------------------------------------------
@@ -363,12 +366,11 @@ gen `var'=``var'_source'
 replace `var'=. if r1fcsid_score==1 // missing if imputed
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "The created variable *`var'* is simply a copied or renamed version of *``var'_source'*, so long as (**Special handling**) the variable if r1fcsid_score is not equal to 1, as when it is it implies that ``var_source' was imputed. This variable is the number correct for CSID naming items (elbow, hammer, store, point)."
 local varlist "`varlist' `var'"
 * Refine
 recode vdlfl6 (0=0)(1=0)(2=0)(3=1)(4=2)
 vlabel vdlfl6 "0-2" "3" "4"
-local vdlfl3_note "`vdlfl6_note' To address maldistribtion, observed values of 0-2 are scored 0, observed values of 2 are scored 1, and observed values of 4 are scored 2."
+local `var'_note "The created variable `var' is simply a copied or renamed version of ``var'_source', so long as the variable if r1fcsid_score is not equal to 1, as when it is it implies that ``var_source' was imputed. This variable is the number correct for CSID naming items (elbow, hammer, store, point). To address maldistribtion, observed values of 0-2 are scored 0, observed values of 2 are scored 1, and observed values of 4 are scored 2."
 local `var'_tx "recoded sum of correct responses in source items"
 
 * ---------------------------------------------------------
@@ -378,7 +380,22 @@ local `var'_lab "MMSE write a sentence"
 local `var'_source "r1senten"
 local `var'_domain "Language, fluency"
 cap drop `var'
-gen `var'=``var'_source'==1 if ``var'_source'<96
+*** Correction to code implemented 2023-12-06
+*** The orignal code contained an error. The 
+*** Source variable has the following responses:
+***     1.  Correct
+***     2.  Correct, Wrote Full Name
+***     5.  Error
+***    97.  Not Assessed
+***    98.  DK (Don't Know)
+***    99.  RF (Refused)
+*** Blank.  Partial IW; Missing
+*** My original code only counts responses of "1" as a 
+*** correct response. Responses of "2" would have been 
+*** counted as an error and with the correction these responses
+*** are counted as correct.
+*** Wrong code replaced: gen `var'=``var'_source'==1 if ``var'_source'<96
+gen `var'=inlist(``var'_source',1,2) if ``var'_source'<96
 * There is no imputation flag for source variable
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
@@ -393,7 +410,22 @@ local `var'_lab "MMSE read and follow command"
 local `var'_source "r1combfol"
 local `var'_domain "Language, fluency"
 cap drop `var'
-gen `var'=``var'_source'==1 if ``var'_source'<96
+*** Correction to code implemented 2023-12-06
+*** The orignal code contained an error. The 
+*** Source variable has the following responses:
+***     1.  Correct
+***     2.  Correct, Iwer Read Instruction
+***     5.  Error
+***    97.  Not Assessed
+***    98.  DK (Don't Know)
+***    99.  RF (Refused)
+*** Blank.  Partial IW; Missing
+*** My original code only counts responses of "1" as a 
+*** correct response. Responses of "2" would have been 
+*** counted as an error and with the correction these responses
+*** are counted as correct.
+*** Wrong code replaced: gen `var'=``var'_source'==1 if ``var'_source'<96
+gen `var'=inlist(``var'_source',1,2) if ``var'_source'<96
 * There is no imputation flag for source variable
 local `var'_tx "restriction of source"
 local `var'_alpha  "NA"
@@ -414,11 +446,20 @@ gen `var' = ``var'_source'
 replace `var'=. if r1fcp_score==1 // if imputed set to missing
 local `var'_alpha  "NA"
 la var `var' "``var'_lab'"
-local `var'_note "*`var'* is CERAD constructional praxis immediate. The summary variable is a simple recode (for missing, other non-response codes as system missing) version of *``var'_source'*. **Special handling** if r1fcp_score is equal to 1, this indicates that ``var'_source' was imputed and `var' is therefore set to missing."
+local `var'_note "`var' is CERAD constructional praxis immediate. The summary variable is a simple recode (for missing, other non-response codes as system missing) version of ``var'_source'. Special handling: if r1fcp_score is equal to 1, this indicates that ``var'_source' was imputed and `var' is therefore set to missing."
 local varlist "`varlist' `var'"
 local `var'_tx "restriction of source"
 
 * ====================== END OF HCAP COGNITIVE ITEMS CODING 
+
+* ======================= H1R1MSETOTAL 2024-04-16
+* Interim HCAP data sets had a variable "h1rmsetotal" for
+* MMSE total score. I create that here in the 
+* public data set.
+cap drop h1rmsetotal
+clonevar h1rmsetotal = r1mmse_score 
+
+
 
 * ============= SCALING OF INPUTS FOR FACTOR ANALYSIS MODEL
 * Min-max normalization with custom ado "z1.ado"
@@ -443,11 +484,11 @@ foreach var of varlist `varlist' {
 * ======== END OF SCALING OF INPUTS FOR FACTOR ANALYSIS MODEL
 
 aorder 
-contents `varlist' `z1varlist'
+contents `varlist' `z1varlist' h1rmsetotal
 local foo = wordcount("`varlist'")
 di "`foo' variables in local varlist"
 
-keep hhid pn `varlist' `z1varlist'
+keep hhid pn `varlist' `z1varlist' h1rmsetotal
 save w021.dta , replace 
 
 

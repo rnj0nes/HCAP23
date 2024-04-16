@@ -3,13 +3,6 @@ local data_source_path "/Users/rnj/Library/CloudStorage/Dropbox/Work/HCAP23/POST
 global source "`data_source_path'"
 dir $source 
 
-cap erase 001finished.txt 
-rdoc init 001finished.txt 
-r `c(current_date)'
-r `c(current_time)'
-rdoc close 
-
-
 
 * Rich's custom ados used
 * —————————————————————————————————————————————————————————

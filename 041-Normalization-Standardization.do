@@ -1,6 +1,6 @@
 cap confirm file w041_output.dta
 if _rc==0 {
-	*exit 
+	exit 
 }
 ************************************************************************
 ******
@@ -15,6 +15,7 @@ use w031-scores.dta , clear
 * Norming sample in w017.dta 
 merge 1:1 hhid pn using w017.dta 
 save w041.dta , replace 
+************************************************************* su hcapage
 cap drop _merge 
 save w041.dta , replace
 * self-rated memory from core file 
@@ -34,7 +35,11 @@ keep hhid pn vdori1 vdvis1
 merge 1:1 hhid pn using w041.dta , nogen 
 save w041.dta , replace
 * need hcap16wgt (from w011.dta)
-use hhid pn hcap16wgt using w011.dta , clear 
+use hhid pn hcap16wgt hcapage using w011.dta , clear 
+merge 1:1 hhid pn using w041.dta , nogen 
+save w041.dta , replace
+* need h1rmsetotal (cloned from r1mmse_score) from w021 
+use hhid pn h1rmsetotal using w021.dta , clear 
 merge 1:1 hhid pn using w041.dta , nogen 
 save w041.dta , replace
 
@@ -435,6 +440,7 @@ foreach x in mem exf lfl ori vis gcp {
 				keep P`y'_blom spage* female black hisp schlyrs hcapage normexcld hhid pn hcap16wgt
 				drop normexcld // can't share normexclud as it encodes Medicare data
 				save P`y'_blom.dta , replace
+				cap erase P`y'_blom.sas7bdat
 				outputst P`y'_blom.sas7bdat , replace 
 				restore			
 			}
